@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      String   @default("PATIENT") // PATIENT, DOCTOR, HOSPITAL_ADMIN, FACILITATOR, PLATFORM_ADMIN
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  patient   Patient?
+}
+
+model Patient {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id])
+  country         String
+  cityPreference  String?
+  budget          Int?
+  medicalRecords  MedicalRecord[]
+  journeys        JourneyTimeline[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Hospital {
+  id                String   @id @default(cuid())
+  name              String
+  city              String
+  trustScore        Int
+  intlPatientDesk   Boolean  @default(true)
+  accreditation     String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  recommendations   HospitalRecommendation[]
+  quotations        Quotation[]
+}
+
+model MedicalRecord {
+  id          String   @id @default(cuid())
+  patientId   String
+  patient     Patient  @relation(fields: [patientId], references: [id])
+  fileName    String
+  fileType    String
+  fileUrl     String
+  extractedData String? // JSON string of extracted data
+  createdAt   DateTime @default(now())
+}
+
+model HospitalRecommendation {
+  id          String   @id @default(cuid())
+  patientId   String
+  hospitalId  String
+  hospital    Hospital @relation(fields: [hospitalId], references: [id])
+  matchScore  Int
+  specialtyMatch Int
+  estimatedCostMin Int
+  estimatedCostMax Int
+  reason      String
+  createdAt   DateTime @default(now())
+}
+
+model Quotation {
+  id          String   @id @default(cuid())
+  hospitalId  String
+  hospital    Hospital @relation(fields: [hospitalId], references: [id])
+  patientId   String
+  treatmentCost Int
+  stayCost    Int
+  status      String   @default("PENDING") // PENDING, ACCEPTED, REJECTED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model JourneyTimeline {
+  id          String   @id @default(cuid())
+  patientId   String
+  patient     Patient  @relation(fields: [patientId], references: [id])
+  stage       String // PROFILE_CREATED, RECORDS_SUBMITTED, AI_ANALYSIS, HOSPITAL_SELECTED, VISA, TRAVEL, TREATMENT, RECOVERY
+  status      String // PENDING, IN_PROGRESS, COMPLETED
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
