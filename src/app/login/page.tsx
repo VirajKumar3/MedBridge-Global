@@ -81,7 +81,7 @@ export default function LoginPage() {
             Role-Based Authentication & Portals
           </Badge>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight">
-            Sign In to MediVoyage AI
+            Sign In to MedBridge-Global
           </h1>
           <p className="text-xs sm:text-sm text-zinc-500 max-w-md mx-auto">
             Choose your account role below for instant demo access to the respective portal.

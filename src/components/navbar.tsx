@@ -136,7 +136,7 @@ export function Navbar() {
                 HealIndia<span className="text-zinc-900 font-black">AI</span>
               </span>
               <span className="text-[10px] text-zinc-400 font-medium tracking-wide">
-                by MediVoyage AI
+                by MedBridge-Global
               </span>
             </div>
           </Link>

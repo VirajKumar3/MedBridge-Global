@@ -33,7 +33,7 @@ export default function RootLayout({
               <Link href="/" className="flex items-center gap-2 font-bold text-xl text-zinc-950">
                 <span className="w-8 h-8 rounded-lg bg-zinc-900 text-white flex items-center justify-center text-lg shadow-xs">✚</span>
                 <span className="text-zinc-950">HealIndia<span className="text-zinc-900 font-extrabold">AI</span></span>
-                <span className="text-xs bg-zinc-100 text-zinc-800 border border-zinc-200 px-2 py-0.5 rounded-full font-medium">MediVoyage</span>
+                <span className="text-xs bg-zinc-100 text-zinc-800 border border-zinc-200 px-2 py-0.5 rounded-full font-medium">MedBridge-Global</span>
               </Link>
               <p className="text-sm text-zinc-600 leading-relaxed max-w-sm">
                 <strong>Your Intelligent Healthcare Journey Beyond Borders.</strong> An AI-powered International Medical Tourism and Patient Care Coordination Platform connecting international patients with accredited Indian hospitals.
@@ -89,7 +89,7 @@ export default function RootLayout({
           </div>
 
           <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
-            <p>© {new Date().getFullYear()} ✚HealIndiaAI (MediVoyage AI). All rights reserved.</p>
+            <p>© {new Date().getFullYear()} ✚HealIndiaAI (MedBridge-Global). All rights reserved.</p>
             <div className="flex items-center gap-6">
               <Link href="/about" className="hover:text-zinc-900">Academic Abstract</Link>
               <Link href="/resources" className="hover:text-zinc-900">Research & Data Connect</Link>

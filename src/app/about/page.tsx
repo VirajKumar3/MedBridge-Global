@@ -54,7 +54,7 @@ export default function AboutPage() {
             Official Capstone & Clinical Ethics Statement
           </div>
           <blockquote className="text-xs sm:text-sm text-zinc-700 italic leading-relaxed border-l-4 border-zinc-800 pl-4">
-            "MediVoyage AI uses AI to organize patient information, analyze and summarize uploaded documents, support hospital and specialist matching, and streamline international care coordination. Medical diagnosis and treatment decisions remain strictly with qualified healthcare professionals."
+            "MedBridge-Global uses AI to organize patient information, analyze and summarize uploaded documents, support hospital and specialist matching, and streamline international care coordination. Medical diagnosis and treatment decisions remain strictly with qualified healthcare professionals."
           </blockquote>
         </Card>
 

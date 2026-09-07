@@ -60,7 +60,7 @@ export default function MedicalTravelPage() {
       recommendedFor: "Patients recovering with family attendants"
     },
     {
-      name: "Apollo Executive Stay by MediVoyage",
+      name: "Apollo Executive Stay by MedBridge-Global",
       distance: "1.8 km from Apollo Hospital, Delhi",
       priceINR: "₹3,400/night",
       priceUSD: "$41/night",

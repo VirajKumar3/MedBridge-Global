@@ -99,11 +99,11 @@ export default function Home() {
           >
             <div className="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-100/90 px-4 py-1.5 text-xs md:text-sm font-semibold text-zinc-900 mb-6 shadow-xs backdrop-blur-sm">
               <span className="flex h-2 w-2 rounded-full bg-zinc-900 mr-2 animate-ping"></span>
-              ✚ HealIndiaAI • MediVoyage AI Platform
+              ✚ HealIndiaAI • MedBridge-Global Platform
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-950 mb-6 leading-tight">
-              MEDIVOYAGE AI <br />
+              MEDBRIDGE-GLOBAL <br />
               <span className="text-gradient">Your Healthcare Journey Beyond Borders</span>
             </h1>
 
@@ -249,7 +249,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 1: Why MediVoyage AI? / Why HealIndiaAI? */}
+      {/* Section 1: Why MedBridge-Global? / Why HealIndiaAI? */}
       <section className="w-full bg-white border-y border-zinc-200 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           
@@ -258,7 +258,7 @@ export default function Home() {
               Section 1
             </Badge>
             <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-950 tracking-tight mb-4">
-              Why MediVoyage AI?
+              Why MedBridge-Global?
             </h2>
             <p className="text-zinc-600 text-lg">
               We bridge the gap between complex cross-border medical travel and effortless, intelligent healthcare delivery with 8 integrated pillars.
@@ -433,7 +433,7 @@ export default function Home() {
               From Inquiry to Full Recovery at Home
             </h2>
             <p className="text-zinc-600 text-sm md:text-base leading-relaxed mb-8">
-              No disconnected spreadsheets or WhatsApp groups. MediVoyage AI organizes your inquiries, document uploads, doctor reviews, hospital invitation letters, medical visa filings, hotel transfers, surgical admission, and tele-health follow-up into one cohesive portal.
+              No disconnected spreadsheets or WhatsApp groups. MedBridge-Global organizes your inquiries, document uploads, doctor reviews, hospital invitation letters, medical visa filings, hotel transfers, surgical admission, and tele-health follow-up into one cohesive portal.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 

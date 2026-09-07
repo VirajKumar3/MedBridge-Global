@@ -42,7 +42,7 @@ export default function HowItWorksPage() {
     {
       step: 3,
       title: "AI Organizes Your Case",
-      desc: "MediVoyage AI extracts medical entities via OCR, maps ICD-10 terminology, and formats a standardized case dossier ready for surgical review.",
+      desc: "MedBridge-Global extracts medical entities via OCR, maps ICD-10 terminology, and formats a standardized case dossier ready for surgical review.",
       icon: BrainCircuit,
       badge: "AI Processing"
     },
@@ -107,7 +107,7 @@ export default function HowItWorksPage() {
             Section 18: Complete Connected Journey
           </Badge>
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-            How MediVoyage AI Works
+            How MedBridge-Global Works
           </h1>
           <p className="text-slate-600 text-base md:text-lg">
             A 10-step synchronized continuum ensuring transparency, safety, and care coordination from your initial inquiry to your healthy return home.

@@ -37,7 +37,7 @@ export default function ResourcesPage() {
       flag: "🇳🇬",
       treatment: "Double Valve Heart Surgery",
       hospital: "Medanta - The Medicity, Gurgaon",
-      quote: "In the UK, we were quoted £32,000 with months of waiting. MediVoyage AI organized our case in 48 hours, Medanta welcomed us at the airport, and Dr. Trehan performed a flawless surgery for under $8,000.",
+      quote: "In the UK, we were quoted £32,000 with months of waiting. MedBridge-Global organized our case in 48 hours, Medanta welcomed us at the airport, and Dr. Trehan performed a flawless surgery for under $8,000.",
       date: "August 2026"
     },
     {

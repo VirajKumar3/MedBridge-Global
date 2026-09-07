@@ -65,7 +65,7 @@ function AICareMatchContent() {
     "Extracting clinical entities & normalizing medical terms...",
     "Identifying primary specialty & procedural urgency...",
     "Organizing patient longitudinal medical history...",
-    "Computing MediVoyage Hybrid Hospital Match Scores..."
+    "Computing MedBridge-Global Hybrid Hospital Match Scores..."
   ];
 
   // Voice recording simulation
@@ -128,7 +128,7 @@ function AICareMatchContent() {
             <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Section 7 & 8: AI Care Match Signature Engine
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Welcome to MediVoyage AI
+            Welcome to MedBridge-Global
           </h1>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
             Our intelligent care match engine organizes your case history, extracts medical entities, and calculates explainable hospital match scores.
@@ -421,7 +421,7 @@ function AICareMatchContent() {
                 <CheckCircle2 className="w-4 h-4" /> Identifying medical specialty (Cardiology / CABG)
               </div>
               <div className={`flex items-center gap-2 ${analysisProgress >= 80 ? 'text-emerald-700 font-semibold' : 'text-slate-400'}`}>
-                <CheckCircle2 className="w-4 h-4" /> Calculating MediVoyage Explainable Match Scores
+                <CheckCircle2 className="w-4 h-4" /> Calculating MedBridge-Global Explainable Match Scores
               </div>
               <div className={`flex items-center gap-2 ${analysisProgress >= 100 ? 'text-emerald-700 font-semibold' : 'text-slate-400'}`}>
                 <CheckCircle2 className="w-4 h-4" /> Generating doctor-ready structured summary
@@ -484,13 +484,13 @@ function AICareMatchContent() {
                 </ul>
               </div>
 
-              {/* Section 8: Explainable MediVoyage Match Score Model Breakdown */}
+              {/* Section 8: Explainable MedBridge-Global Match Score Model Breakdown */}
               <div className="p-5 bg-gradient-to-br from-emerald-50/70 to-teal-50/50 rounded-2xl border border-emerald-200 space-y-4">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
                     <BrainCircuit className="w-5 h-5 text-emerald-700" />
                     <h4 className="font-bold text-slate-900 text-sm">
-                      Section 8: MediVoyage AI Match Score Algorithm Breakdown
+                      Section 8: MedBridge-Global Match Score Algorithm Breakdown
                     </h4>
                   </div>
                   <Badge variant="outline" className="bg-white text-emerald-800 border-emerald-200 text-[10px]">
@@ -544,7 +544,7 @@ function AICareMatchContent() {
                 <div className="text-xs text-amber-900 space-y-1">
                   <p className="font-bold">Recommended Next Step:</p>
                   <p>
-                    Share this structured case summary with qualified hospital specialists for clinical review. MediVoyage AI does not issue prescriptions or definitive diagnoses.
+                    Share this structured case summary with qualified hospital specialists for clinical review. MedBridge-Global does not issue prescriptions or definitive diagnoses.
                   </p>
                 </div>
               </div>

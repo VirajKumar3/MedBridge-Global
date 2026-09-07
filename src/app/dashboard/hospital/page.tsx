@@ -142,7 +142,7 @@ export default function HospitalDashboard() {
                 <div className="flex justify-between items-center">
                   <div>
                     <h3 className="text-xl font-bold text-slate-900">Incoming International Patient Requests</h3>
-                    <p className="text-xs text-slate-500">Cases matched to Medanta via MediVoyage AI Care Match Engine</p>
+                    <p className="text-xs text-slate-500">Cases matched to Medanta via MedBridge-Global Care Match Engine</p>
                   </div>
                   <Badge variant="outline" className="text-primary text-xs">24 Total Active</Badge>
                 </div>
