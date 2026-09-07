@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -84,9 +85,9 @@ export default function Match() {
         
         <div className="mb-10">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Best Hospitals for Your Case</h1>
-          <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100 flex items-start gap-3">
-            <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-            <p className="text-sm text-blue-800">
+          <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-200 flex items-start gap-3">
+            <Info className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+            <p className="text-sm text-emerald-900">
               We analyzed your medical profile, cardiology requirements, estimated cost, hospital expertise, location preferences, and international-patient services to bring you these top matches.
             </p>
           </div>
@@ -157,7 +158,7 @@ export default function Match() {
                         </div>
 
                         <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="secondary" className="bg-blue-50 text-blue-700 font-normal">
+                          <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 font-normal border border-emerald-100">
                             {hospital.accreditation}
                           </Badge>
                           <Badge variant="secondary" className="bg-gray-100 text-gray-600 font-normal">
@@ -244,7 +245,7 @@ export default function Match() {
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-3 border-b">
                       <div className="flex items-center gap-3">
-                        <div className="bg-blue-100 p-2 rounded-lg text-blue-600"><Building2 className="w-4 h-4" /></div>
+                        <div className="bg-emerald-50 border border-emerald-200 p-2 rounded-lg text-emerald-700"><Building2 className="w-4 h-4" /></div>
                         <div>
                           <p className="font-medium">Medical Treatment (CABG)</p>
                           <p className="text-xs text-gray-500">Surgeon fees, OT charges</p>
@@ -255,7 +256,7 @@ export default function Match() {
                     
                     <div className="flex justify-between items-center py-3 border-b">
                       <div className="flex items-center gap-3">
-                        <div className="bg-indigo-100 p-2 rounded-lg text-indigo-600"><Hotel className="w-4 h-4" /></div>
+                        <div className="bg-teal-50 border border-teal-200 p-2 rounded-lg text-teal-700"><Hotel className="w-4 h-4" /></div>
                         <div>
                           <p className="font-medium">Hospital Stay</p>
                           <p className="text-xs text-gray-500">7 Days (ICU + Ward)</p>

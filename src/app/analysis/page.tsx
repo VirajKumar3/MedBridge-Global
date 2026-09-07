@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -57,7 +58,7 @@ export default function AIAnalysis() {
               className="relative w-32 h-32 mb-8"
             >
               <div className="absolute inset-0 rounded-full border-t-4 border-primary border-r-4 border-r-transparent opacity-70"></div>
-              <div className="absolute inset-2 rounded-full border-l-4 border-blue-400 border-b-4 border-b-transparent opacity-50"></div>
+              <div className="absolute inset-2 rounded-full border-l-4 border-teal-400 border-b-4 border-b-transparent opacity-50"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <BrainCircuit className="w-10 h-10 text-primary" />
               </div>
@@ -75,17 +76,17 @@ export default function AIAnalysis() {
                   <div 
                     key={stage.id} 
                     className={`flex items-center gap-4 p-3 rounded-xl transition-all duration-300 ${
-                      isActive ? "bg-white shadow-md border border-blue-100" : 
+                      isActive ? "bg-white shadow-md border border-emerald-200" : 
                       isCompleted ? "opacity-50" : "opacity-20"
                     }`}
                   >
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                      isActive ? "bg-blue-100 text-blue-600" : 
+                      isActive ? "bg-emerald-100 text-emerald-700" : 
                       isCompleted ? "bg-green-100 text-green-600" : "bg-gray-100 text-gray-400"
                     }`}>
                       {isCompleted ? <CheckCircle2 className="w-5 h-5" /> : <Icon className="w-5 h-5" />}
                     </div>
-                    <span className={`font-medium ${isActive ? "text-blue-700" : isCompleted ? "text-gray-500" : "text-gray-400"}`}>
+                    <span className={`font-medium ${isActive ? "text-emerald-800" : isCompleted ? "text-gray-500" : "text-gray-400"}`}>
                       {stage.label}
                     </span>
                   </div>
@@ -110,7 +111,7 @@ export default function AIAnalysis() {
             </div>
 
             <Card className="p-8 shadow-xl border-white glass-panel mb-8 overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                 
@@ -124,7 +125,7 @@ export default function AIAnalysis() {
                   
                   <div>
                     <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Primary Specialty</h3>
-                    <div className="inline-flex px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm font-semibold border border-blue-200">
+                    <div className="inline-flex px-3 py-1 bg-emerald-50 text-emerald-800 rounded-lg text-sm font-semibold border border-emerald-200">
                       Cardiology
                     </div>
                   </div>
@@ -132,7 +133,7 @@ export default function AIAnalysis() {
                   <div>
                     <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Analyzed Documents</h3>
                     <div className="flex items-center gap-2 text-sm text-gray-600 bg-gray-50 p-2 rounded-lg border">
-                      <FileText className="w-4 h-4 text-blue-500" />
+                      <FileText className="w-4 h-4 text-emerald-600" />
                       Angiography_Report_JohnDoe.pdf
                     </div>
                   </div>
@@ -161,19 +162,19 @@ export default function AIAnalysis() {
 
                   <div>
                     <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                      <Stethoscope className="w-4 h-4 text-primary" /> Suggested Clinical Pathway
+                      <Stethoscope className="w-4 h-4 text-emerald-600" /> Suggested Clinical Pathway
                     </h3>
-                    <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100 space-y-3">
+                    <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100 space-y-3">
                       <div className="flex gap-3">
-                        <div className="font-medium text-blue-700 text-sm">1.</div>
+                        <div className="font-medium text-emerald-700 text-sm">1.</div>
                         <div className="text-sm text-gray-700">Cardiology consultation and physical evaluation.</div>
                       </div>
                       <div className="flex gap-3">
-                        <div className="font-medium text-blue-700 text-sm">2.</div>
+                        <div className="font-medium text-emerald-700 text-sm">2.</div>
                         <div className="text-sm text-gray-700">Further diagnostic imaging (Echocardiogram).</div>
                       </div>
                       <div className="flex gap-3">
-                        <div className="font-medium text-blue-700 text-sm">3.</div>
+                        <div className="font-medium text-emerald-700 text-sm">3.</div>
                         <div className="text-sm text-gray-700">Potential surgical assessment for Coronary Artery Bypass Grafting (CABG).</div>
                       </div>
                     </div>

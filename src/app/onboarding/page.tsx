@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -184,9 +185,9 @@ export default function Onboarding() {
                     <h2 className="text-2xl font-semibold mb-1">Medical Documents</h2>
                     <p className="text-sm text-gray-500">Upload reports for AI analysis (MRI, CT, Blood tests, Prescriptions).</p>
                   </div>
-                  <div className="border-2 border-dashed border-gray-300 rounded-xl p-10 flex flex-col items-center justify-center text-center bg-gray-50/50 hover:bg-blue-50/50 transition-colors cursor-pointer group">
+                  <div className="border-2 border-dashed border-gray-300 rounded-xl p-10 flex flex-col items-center justify-center text-center bg-gray-50/50 hover:bg-emerald-50/50 hover:border-emerald-500 transition-colors cursor-pointer group">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                      <Upload className="w-8 h-8 text-primary" />
+                      <Upload className="w-8 h-8 text-emerald-600" />
                     </div>
                     <h3 className="font-semibold text-gray-900 mb-1">Click to upload or drag and drop</h3>
                     <p className="text-sm text-gray-500 mb-4">PDF, JPG, PNG (Max 10MB)</p>
@@ -194,7 +195,7 @@ export default function Onboarding() {
                   </div>
                   {/* Mock uploaded file */}
                   <div className="flex items-center gap-3 p-3 bg-white border rounded-lg shadow-sm">
-                    <FileText className="w-5 h-5 text-blue-500" />
+                    <FileText className="w-5 h-5 text-emerald-600" />
                     <div className="flex-1">
                       <p className="text-sm font-medium">Angiography_Report_JohnDoe.pdf</p>
                       <p className="text-xs text-gray-500">2.4 MB</p>
