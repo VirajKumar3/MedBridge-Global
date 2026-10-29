@@ -35,30 +35,44 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* MedBridge 2026 Violet Healthcare Palette */
+  --color-graphite: #17151F;
+  --color-violet: #7657FF;
+  --color-lilac: #A99AFF;
+  --color-ice: #EDEAFF;
+  --color-white: #F8F7FC;
+  --color-navy: #17151F;
+  --color-teal: #7657FF;
+  --color-mint: #EDEAFF;
+  --color-slate: #666276;
+  --color-soft-gray: #F8F7FC;
+
+  /* Fonts */
+  --font-outfit: var(--font-outfit);
+  --font-reenie: var(--font-reenie);
 }
 
 :root {
-  --background: oklch(0.995 0 0);
-  --foreground: oklch(0.14 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.14 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.14 0 0);
-  /* Elegant Luxury Charcoal/Black Primary */
-  --primary: oklch(0.18 0 0); 
-  --primary-foreground: oklch(0.99 0 0);
-  /* Light Grey / Zinc Secondary */
-  --secondary: oklch(0.965 0 0);
-  --secondary-foreground: oklch(0.2 0 0);
-  --muted: oklch(0.965 0 0);
-  --muted-foreground: oklch(0.48 0 0);
-  --accent: oklch(0.965 0 0);
-  --accent-foreground: oklch(0.15 0 0);
+  --background: #F8F7FC;
+  --foreground: #17151F;
+  --card: #FFFFFF;
+  --card-foreground: #17151F;
+  --popover: #FFFFFF;
+  --popover-foreground: #17151F;
+  --primary: #7657FF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDEAFF;
+  --secondary-foreground: #17151F;
+  --muted: #EDEAFF;
+  --muted-foreground: #666276;
+  --accent: #EDEAFF;
+  --accent-foreground: #7657FF;
   --destructive: oklch(0.577 0.245 27.325);
-  --success: oklch(0.5 0 0);
-  --border: oklch(0.91 0 0);
-  --input: oklch(0.91 0 0);
-  --ring: oklch(0.25 0 0);
+  --success: #7657FF;
+  --border: #E2DEFB;
+  --input: #E2DEFB;
+  --ring: #7657FF;
   
   --radius: 1rem;
 }
@@ -107,5 +121,183 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-950 via-zinc-700 to-zinc-900;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-reverse {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes reveal {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-reverse {
+    animation: float-reverse 6s ease-in-out infinite;
+  }
+
+  .animate-reveal {
+    animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* SVG Noise styling */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+  }
+
+  /* Hero App Experience 3-Card Interactive Spread */
+  .hero-card-shared {
+    will-change: transform, box-shadow, opacity, border-color;
+    transition-property: transform, box-shadow, opacity, border-color;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Base/rest states */
+  .hero-card-left {
+    transform: translate3d(-120%, 48px, 0) rotate(-2deg);
+    transition-duration: 650ms;
+    transition-delay: 50ms;
+  }
+  @media (min-width: 1024px) {
+    .hero-card-left {
+      transform: translate3d(-140%, 48px, 0) rotate(-2.5deg);
+    }
+  }
+
+  .hero-card-center {
+    transform: translate3d(-50%, 0, 0) scale(1);
+    transition-duration: 600ms;
+    transition-delay: 0ms;
+  }
+
+  .hero-card-right {
+    transform: translate3d(20%, 96px, 0) rotate(2deg);
+    transition-duration: 700ms;
+    transition-delay: 80ms;
+  }
+  @media (min-width: 1024px) {
+    .hero-card-right {
+      transform: translate3d(40%, 96px, 0) rotate(2.5deg);
+    }
+  }
+
+  /* Group hover/focus-within: Cards smoothly separate outward */
+  @media (hover: hover) and (pointer: fine) {
+    .hero-cards-group:hover .hero-card-left,
+    .hero-cards-group:focus-within .hero-card-left {
+      transform: translate3d(-155%, 32px, 0) rotate(-4.5deg) scale(0.97);
+      opacity: 0.96;
+      box-shadow: -16px 28px 56px -16px rgba(11, 37, 69, 0.22), 0 0 0 1px rgba(15, 157, 138, 0.15);
+      transition-delay: 0ms;
+    }
+    @media (min-width: 1024px) {
+      .hero-cards-group:hover .hero-card-left,
+      .hero-cards-group:focus-within .hero-card-left {
+        transform: translate3d(-182%, 24px, 0) rotate(-5.5deg) scale(0.98);
+      }
+    }
+
+    .hero-cards-group:hover .hero-card-center,
+    .hero-cards-group:focus-within .hero-card-center {
+      transform: translate3d(-50%, -14px, 0) scale(1.03);
+      box-shadow: 0 32px 72px -16px rgba(11, 37, 69, 0.26), 0 0 0 1px rgba(15, 157, 138, 0.25);
+      transition-delay: 40ms;
+    }
+
+    .hero-cards-group:hover .hero-card-right,
+    .hero-cards-group:focus-within .hero-card-right {
+      transform: translate3d(55%, 72px, 0) rotate(4.5deg) scale(0.97);
+      opacity: 0.96;
+      box-shadow: 16px 28px 56px -16px rgba(11, 37, 69, 0.22), 0 0 0 1px rgba(15, 157, 138, 0.15);
+      transition-delay: 80ms;
+    }
+    @media (min-width: 1024px) {
+      .hero-cards-group:hover .hero-card-right,
+      .hero-cards-group:focus-within .hero-card-right {
+        transform: translate3d(82%, 60px, 0) rotate(5.5deg) scale(0.98);
+      }
+    }
+
+    /* Individual Card Hover Emphasis */
+    .hero-cards-group .hero-card-left:hover {
+      transform: translate3d(-158%, 20px, 0) rotate(-1.5deg) scale(1.03) !important;
+      opacity: 1 !important;
+      z-index: 30 !important;
+      box-shadow: -20px 36px 64px -12px rgba(11, 37, 69, 0.3), 0 0 0 2px #0F9D8A !important;
+      transition-duration: 350ms !important;
+      transition-delay: 0ms !important;
+    }
+    @media (min-width: 1024px) {
+      .hero-cards-group .hero-card-left:hover {
+        transform: translate3d(-186%, 12px, 0) rotate(-2deg) scale(1.04) !important;
+      }
+    }
+
+    .hero-cards-group .hero-card-center:hover {
+      transform: translate3d(-50%, -24px, 0) scale(1.06) !important;
+      opacity: 1 !important;
+      z-index: 35 !important;
+      box-shadow: 0 40px 84px -14px rgba(11, 37, 69, 0.32), 0 0 0 2px #0F9D8A !important;
+      transition-duration: 350ms !important;
+      transition-delay: 0ms !important;
+    }
+
+    .hero-cards-group .hero-card-right:hover {
+      transform: translate3d(58%, 56px, 0) rotate(1.5deg) scale(1.03) !important;
+      opacity: 1 !important;
+      z-index: 30 !important;
+      box-shadow: 20px 36px 64px -12px rgba(11, 37, 69, 0.3), 0 0 0 2px #0F9D8A !important;
+      transition-duration: 350ms !important;
+      transition-delay: 0ms !important;
+    }
+    @media (min-width: 1024px) {
+      .hero-cards-group .hero-card-right:hover {
+        transform: translate3d(86%, 44px, 0) rotate(2deg) scale(1.04) !important;
+      }
+    }
+  }
+
+  /* Accessibility: Prefers Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-card-shared,
+    .hero-card-left,
+    .hero-card-center,
+    .hero-card-right {
+      transition: none !important;
+      transform: none !important;
+      animation: none !important;
+    }
   }
 }

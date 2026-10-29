@@ -1,265 +1,293 @@
 "use client";
 
-
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { TREATMENTS, Treatment } from "@/lib/data";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { 
-  Search, 
-  Sparkles, 
-  Calendar, 
-  Clock, 
-  ShieldCheck, 
-  Building2, 
-  Stethoscope, 
-  HelpCircle, 
-  ArrowRight,
-  ShieldAlert,
+import {
+  Search,
+  HeartPulse,
+  Bone,
+  Brain,
+  Droplets,
+  Activity,
+  Baby,
+  Smile,
+  Scissors,
+  Stethoscope,
   ChevronRight,
-  CheckCircle2
+  IndianRupee,
+  CalendarDays,
+  ActivitySquare,
+  ShieldCheck,
+  Building2,
+  ArrowRight,
+  BarChart,
+  Star
 } from "lucide-react";
 
+const CATEGORIES = [
+  { name: "All", icon: null },
+  { name: "Cardiology", icon: HeartPulse },
+  { name: "Orthopedics", icon: Bone }, // Using Orthopedics as per data.ts
+  { name: "Oncology", icon: Activity },
+  { name: "Neurology", icon: Brain },
+  { name: "Transplant", icon: Droplets },
+  { name: "IVF & Fertility", icon: Baby },
+  { name: "Bariatric Surgery", icon: Scissors },
+  { name: "Dental Care", icon: Smile },
+];
+
 export default function TreatmentsPage() {
-  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment>(TREATMENTS[0]);
 
-  const categories = [
-    "All",
-    "Cardiology ❤️",
-    "Orthopedics 🦴",
-    "Oncology 🎗️",
-    "Neurology 🧠",
-    "Organ Transplant",
-    "IVF & Fertility",
-    "Bariatric Surgery",
-    "Dental Care"
-  ];
+  const filteredTreatments = TREATMENTS.filter(t => {
+    // Map the category strings to the simpler filter names
+    const tCat = t.category.toLowerCase();
+    const sCat = selectedCategory.toLowerCase();
+    const matchesCategory = selectedCategory === "All" || tCat.includes(sCat);
 
-  const filteredTreatments = TREATMENTS.filter((t) => {
-    const matchesCategory = selectedCategory === "All" || t.category === selectedCategory;
     const matchesSearch = t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          t.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          t.category.toLowerCase().includes(searchQuery.toLowerCase());
+      t.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t.category.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
+  // Generates generic benefits based on treatment. 
+  // In a real app, this would be part of the data.ts Treatment interface.
+  const getBenefits = (_t: Treatment) => {
+    return [
+      "Targeted precision",
+      "Faster recovery",
+      "Improved quality of life"
+    ];
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-10">
-        
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <Badge variant="outline" className="bg-emerald-50 text-emerald-800 border-emerald-200 mb-3">
-            Section 3: Treatments Module
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-            Medical Treatments & Specialties
-          </h1>
-          <p className="text-slate-600 text-base md:text-lg">
-            Explore advanced procedures, transparent cost estimates, hospital stay durations, and specialist options in India.
-          </p>
-        </div>
+    <div className="min-h-screen bg-[#F8FCFD] pt-36 pb-24 text-[#17151F] font-sans selection:bg-[#EDEAFF] selection:text-[#17151F]">
+      <div className="max-w-[1240px] mx-auto px-6 lg:px-16">
 
-        {/* Clinical Disclaimer Notice */}
-        <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 flex items-start gap-3 max-w-4xl mx-auto">
-          <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-          <p className="text-xs sm:text-sm text-amber-800 leading-relaxed">
-            <strong>Important Clinical Boundary:</strong> HealIndiaAI provides informational and coordination support. Our AI systems do not independently diagnose conditions or prescribe medications. All clinical decisions and treatment approvals remain strictly with qualified healthcare professionals.
-          </p>
-        </div>
-
-        {/* Search and Category Filters */}
-        <div className="space-y-4 max-w-4xl mx-auto">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-            <Input
-              type="text"
-              placeholder="Search treatments by name, condition, or keyword (e.g., Knee, Bypass, Proton)..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-6 text-base bg-white rounded-2xl shadow-xs border-slate-200"
-            />
+        {/* 1. Header Section */}
+        <div className="relative flex items-center justify-between mb-14">
+          <div className="max-w-xl relative z-10">
+            <span className="text-[11px] font-bold tracking-[2px] text-[#666276] uppercase mb-5 block">
+              Treatments
+            </span>
+            <h1 className="text-4xl md:text-[44px] font-medium tracking-tight mb-5 leading-[1.15]">
+              Find the Right Treatment for a <span className="text-[#7657FF]">Healthier Tomorrow</span>
+            </h1>
+            <p className="text-[#666276] text-[15px] leading-relaxed max-w-md">
+              Explore trusted treatments, compare costs, and connect with top hospitals — all in one place.
+            </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((cat) => (
-              <Button
-                key={cat}
-                variant={selectedCategory === cat ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedCategory(cat)}
-                className={`rounded-full text-xs transition-all ${selectedCategory === cat ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-white text-slate-600 hover:text-emerald-700'}`}
+          <div className="hidden lg:flex absolute -right-8 -top-8 w-[400px] h-[250px] items-center justify-center pointer-events-none">
+            <div className="absolute inset-0 bg-[#EDEAFF] rounded-full blur-[80px] opacity-70" />
+            <Stethoscope className="w-48 h-48 text-[#EDEAFF] opacity-40 -rotate-12 absolute" strokeWidth={1} />
+            <div className="bg-white/80 backdrop-blur-sm border border-[#EDEAFF] rounded-2xl p-4 shadow-sm absolute right-10 top-10 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-[#EDEAFF] flex items-center justify-center">
+                <HeartPulse className="w-4 h-4 text-[#7657FF]" />
+              </div>
+              <p className="text-[12px] font-medium text-[#17151F] leading-tight">Your health journey,<br />our global support.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* 2. Search */}
+        <div className="relative max-w-3xl mb-8">
+          <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-[#666276]" />
+          <Input
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full h-[60px] pl-[60px] pr-6 rounded-full border-[#DCE7E9] bg-white shadow-[0_4px_20px_rgba(11,37,69,0.03)] text-[15px] focus-visible:ring-[#7657FF] focus-visible:ring-offset-0 focus-visible:border-[#7657FF] placeholder:text-[#A99AFF] transition-all"
+            placeholder="Search treatments (e.g. knee replacement, cancer, heart...)"
+          />
+        </div>
+
+        {/* 3. Category Filters */}
+        <div className="flex gap-2.5 overflow-x-auto pb-4 scrollbar-hide mb-10 -mx-6 px-6 lg:mx-0 lg:px-0">
+          {CATEGORIES.map(cat => {
+            const isSelected = selectedCategory === cat.name;
+            const Icon = cat.icon;
+            return (
+              <button
+                key={cat.name}
+                onClick={() => setSelectedCategory(cat.name)}
+                className={`flex items-center gap-2 shrink-0 px-5 py-2.5 rounded-full text-[13px] font-medium border transition-all duration-200 ${isSelected
+                    ? "bg-[#7657FF] border-[#7657FF] text-white shadow-md"
+                    : "bg-white border-[#DCE7E9] text-[#666276] hover:border-[#A99AFF] hover:text-[#17151F]"
+                  }`}
               >
-                {cat}
-              </Button>
-            ))}
-          </div>
+                {Icon && <Icon className={`w-3.5 h-3.5 ${isSelected ? "text-white" : "text-[#7657FF]"}`} />}
+                {cat.name}
+              </button>
+            )
+          })}
         </div>
 
-        {/* Main Treatments Layout: Grid on Left, Detailed Profile on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Column: Treatment Cards List */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="flex justify-between items-center px-1">
-              <span className="text-xs font-bold uppercase text-slate-400">Available Procedures ({filteredTreatments.length})</span>
-              <span className="text-xs text-slate-500">Click to view complete details</span>
+        {/* 4. Main Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-6 lg:gap-8 items-start">
+
+          {/* Left — Treatment list */}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center justify-between px-1 mb-2">
+              <h3 className="font-semibold text-[15px]">{filteredTreatments.length} Treatments</h3>
+              <span className="text-[12px] text-[#666276] font-medium flex items-center gap-1 cursor-pointer hover:text-[#17151F]">
+                Sort by: Popular <ChevronRight className="w-3 h-3 rotate-90" />
+              </span>
             </div>
 
-            <div className="space-y-3 max-h-[750px] overflow-y-auto pr-1">
-              {filteredTreatments.map((t) => {
+            <div className="flex flex-col gap-3">
+              {filteredTreatments.map(t => {
                 const isSelected = selectedTreatment.id === t.id;
                 return (
-                  <Card
+                  <div
                     key={t.id}
                     onClick={() => setSelectedTreatment(t)}
-                    className={`p-5 cursor-pointer transition-all border ${isSelected ? 'border-emerald-500 bg-emerald-50/50 shadow-md ring-2 ring-emerald-500/20' : 'border-slate-200 bg-white hover:border-slate-300'}`}
+                    className={`group flex items-center justify-between p-4 rounded-[20px] cursor-pointer transition-all duration-200 border ${isSelected
+                        ? "bg-[#F8F7FC] border-[#7657FF] shadow-sm"
+                        : "bg-white border-[#DCE7E9] hover:border-[#A99AFF] hover:shadow-sm"
+                      }`}
                   >
-                    <div className="flex justify-between items-start mb-1">
-                      <span className="text-xs font-semibold text-emerald-700">{t.category}</span>
-                      <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">{t.costRangeUSD}</span>
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${isSelected ? "bg-[#EDEAFF]" : "bg-[#F8F7FC] group-hover:bg-[#EDEAFF]"}`}>
+                        <Stethoscope className={`w-5 h-5 ${isSelected ? "text-[#7657FF]" : "text-[#666276]"}`} />
+                      </div>
+                      <div>
+                        <h4 className={`text-[14px] font-medium mb-1 ${isSelected ? "text-[#17151F]" : "text-[#17151F]"}`}>{t.name}</h4>
+                        <p className="text-[12px] text-[#666276]">{t.category}</p>
+                      </div>
                     </div>
-                    <h3 className="font-bold text-slate-900 text-base mb-1.5">{t.name}</h3>
-                    <p className="text-xs text-slate-500 line-clamp-2 mb-3">{t.description}</p>
-                    
-                    <div className="flex items-center gap-4 text-[11px] text-slate-500">
-                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {t.hospitalStay}</span>
-                      <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> Trip: {t.tripDuration}</span>
-                      <span className="flex items-center gap-1 text-emerald-600 font-medium"><ShieldCheck className="w-3.5 h-3.5" /> {t.successRate}</span>
+                    <div className="flex items-center gap-3 text-right">
+                      <span className={`text-[13px] font-semibold ${isSelected ? "text-[#7657FF]" : "text-[#17151F]"}`}>
+                        {t.costRangeINR}
+                      </span>
+                      <ChevronRight className={`w-4 h-4 ${isSelected ? "text-[#7657FF]" : "text-[#A99AFF]"}`} />
                     </div>
-                  </Card>
-                );
+                  </div>
+                )
               })}
+              {filteredTreatments.length === 0 && (
+                <div className="bg-white border border-[#DCE7E9] rounded-[20px] p-8 text-center text-[#666276] text-[14px]">
+                  No treatments found. Try adjusting your search.
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Right Column: Selected Treatment In-Depth Profile */}
-          <div className="lg:col-span-7">
-            <Card className="p-6 md:p-8 bg-white border-slate-200 shadow-xl rounded-3xl sticky top-24 space-y-6">
-              
+          {/* Right — Treatment details */}
+          {selectedTreatment && (
+            <div className="sticky top-28 bg-white rounded-[24px] border border-[#DCE7E9] shadow-[0_8px_30px_rgba(11,37,69,0.04)] p-6 lg:p-8 flex flex-col gap-8">
+
               {/* Header */}
-              <div className="border-b border-slate-100 pb-5">
-                <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
-                  <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 font-semibold text-xs">
-                    {selectedTreatment.category}
-                  </Badge>
-                  <div className="flex items-center gap-2 text-xs text-emerald-700 font-semibold bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Verified Hospital Success: {selectedTreatment.successRate}
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="flex items-center gap-1.5 px-3 py-1 bg-[#EDEAFF] text-[#6042EE] rounded-full text-[11px] font-bold uppercase tracking-wider">
+                      <ActivitySquare className="w-3 h-3" /> {selectedTreatment.category}
+                    </span>
+                    <span className="flex items-center gap-1 px-3 py-1 bg-[#EDEAFF] text-[#17151F] rounded-full text-[11px] font-bold uppercase tracking-wider">
+                      <ShieldCheck className="w-3 h-3" /> Verified Hospitals
+                    </span>
                   </div>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
-                  {selectedTreatment.name}
-                </h2>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {selectedTreatment.description}
-                </p>
-              </div>
-
-              {/* Cost & Trip Metric Boxes */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100">
-                  <div className="text-[11px] text-slate-400 font-medium">Est. Cost Range</div>
-                  <div className="text-sm font-bold text-slate-900 mt-0.5">{selectedTreatment.costRangeUSD}</div>
-                  <div className="text-[10px] text-slate-500">({selectedTreatment.costRangeINR})</div>
-                </div>
-                <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100">
-                  <div className="text-[11px] text-slate-400 font-medium">Hospital Stay</div>
-                  <div className="text-sm font-bold text-slate-900 mt-0.5">{selectedTreatment.hospitalStay}</div>
-                  <div className="text-[10px] text-slate-500">ICU + Inpatient</div>
-                </div>
-                <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100">
-                  <div className="text-[11px] text-slate-400 font-medium">Trip Duration</div>
-                  <div className="text-sm font-bold text-slate-900 mt-0.5">{selectedTreatment.tripDuration}</div>
-                  <div className="text-[10px] text-slate-500">Arrival to departure</div>
-                </div>
-                <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100">
-                  <div className="text-[11px] text-slate-400 font-medium">Recovery Time</div>
-                  <div className="text-sm font-bold text-slate-900 mt-0.5">{selectedTreatment.recoveryTime}</div>
-                  <div className="text-[10px] text-slate-500">Full mobility</div>
+                  <h2 className="text-2xl lg:text-3xl font-medium tracking-tight mb-2">
+                    {selectedTreatment.name}
+                  </h2>
+                  <p className="text-[14px] text-[#666276] leading-relaxed max-w-lg">
+                    {selectedTreatment.description}
+                  </p>
                 </div>
               </div>
 
-              {/* Overview */}
+              {/* Metrics Row */}
+              <div className="grid grid-cols-3 gap-3 lg:gap-4">
+                <div className="bg-[#F8FCFD] rounded-2xl p-4 border border-[#EDEAFF]">
+                  <div className="w-8 h-8 rounded-full bg-[#EDEAFF] flex items-center justify-center mb-3">
+                    <IndianRupee className="w-4 h-4 text-[#6042EE]" />
+                  </div>
+                  <p className="text-[11px] text-[#666276] uppercase tracking-wider font-semibold mb-1">Estimated Cost</p>
+                  <p className="text-[14px] font-bold text-[#17151F]">{selectedTreatment.costRangeINR}</p>
+                </div>
+                <div className="bg-[#F8FCFD] rounded-2xl p-4 border border-[#EDEAFF]">
+                  <div className="w-8 h-8 rounded-full bg-[#E0E7FF] flex items-center justify-center mb-3">
+                    <CalendarDays className="w-4 h-4 text-[#3730A3]" />
+                  </div>
+                  <p className="text-[11px] text-[#666276] uppercase tracking-wider font-semibold mb-1">Hospital Stay</p>
+                  <p className="text-[14px] font-bold text-[#17151F]">{selectedTreatment.hospitalStay}</p>
+                </div>
+                <div className="bg-[#F8FCFD] rounded-2xl p-4 border border-[#EDEAFF]">
+                  <div className="w-8 h-8 rounded-full bg-[#FEF3C7] flex items-center justify-center mb-3">
+                    <Activity className="w-4 h-4 text-[#B45309]" />
+                  </div>
+                  <p className="text-[11px] text-[#666276] uppercase tracking-wider font-semibold mb-1">Recovery Time</p>
+                  <p className="text-[14px] font-bold text-[#17151F]">{selectedTreatment.recoveryTime}</p>
+                </div>
+              </div>
+
+              {/* Key Benefits */}
               <div>
-                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">
-                  Clinical Overview
-                </h4>
-                <p className="text-sm text-slate-600 leading-relaxed bg-slate-50/60 p-4 rounded-2xl border border-slate-100">
-                  {selectedTreatment.overview}
-                </p>
-              </div>
-
-              {/* Suitable Hospitals & Doctors */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 bg-white border border-slate-200 rounded-2xl shadow-2xs">
-                  <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1.5 mb-2.5">
-                    <Building2 className="w-4 h-4 text-primary" /> Suitable Accredited Hospitals
-                  </h4>
-                  <ul className="space-y-1.5 text-xs text-slate-600">
-                    {selectedTreatment.suitableHospitals.map((h, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="p-4 bg-white border border-slate-200 rounded-2xl shadow-2xs">
-                  <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1.5 mb-2.5">
-                    <Stethoscope className="w-4 h-4 text-purple-600" /> Specialist Doctors
-                  </h4>
-                  <ul className="space-y-1.5 text-xs text-slate-600">
-                    {selectedTreatment.specialistDoctors.map((d, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-600 shrink-0"></span>
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* FAQs Accordion */}
-              <div>
-                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <HelpCircle className="w-4 h-4 text-slate-400" /> Frequently Asked Questions
-                </h4>
-                <div className="space-y-2">
-                  {selectedTreatment.faqs.map((faq, idx) => (
-                    <div key={idx} className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs">
-                      <p className="font-semibold text-slate-800 mb-1">Q: {faq.q}</p>
-                      <p className="text-slate-600">A: {faq.a}</p>
+                <p className="text-[13px] font-semibold text-[#17151F] mb-3">Key Benefits</p>
+                <div className="flex flex-wrap gap-3">
+                  {getBenefits(selectedTreatment).map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-2 bg-[#F8F7FC] px-3 py-2 rounded-xl text-[12px] font-medium text-[#666276]">
+                      <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        <ShieldCheck className="w-3 h-3 text-[#7657FF]" />
+                      </div>
+                      {benefit}
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* CTA */}
-              <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs text-slate-500">
-                  Ready to evaluate your reports for this procedure?
+              {/* Top Hospitals */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-[13px] font-semibold text-[#17151F] flex items-center gap-2">
+                    <Building2 className="w-4 h-4" /> Top Hospitals
+                  </p>
+                  <span className="text-[12px] font-medium text-[#7657FF] cursor-pointer hover:underline">View All &rarr;</span>
                 </div>
-                <Button 
-                  onClick={() => router.push(`/ai-care-match?treatment=${selectedTreatment.id}`)}
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-2.5 text-sm font-semibold shadow-md flex items-center gap-2"
-                >
-                  <Sparkles className="w-4 h-4 text-amber-300" />
-                  Start AI Care Match for {selectedTreatment.name.split(" ")[0]}
-                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  {selectedTreatment.suitableHospitals.slice(0, 3).map((hosp, i) => {
+                    const [name, location] = hosp.split(",");
+                    return (
+                      <div key={i} className="border border-[#DCE7E9] rounded-xl p-3 flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-[#F8F7FC] flex items-center justify-center shrink-0">
+                          <Building2 className="w-5 h-5 text-[#A99AFF]" />
+                        </div>
+                        <div>
+                          <p className="text-[12px] font-semibold text-[#17151F] leading-tight line-clamp-1">{name}</p>
+                          <p className="text-[11px] text-[#666276] mt-0.5">{location?.trim() || "India"}</p>
+                          <div className="flex items-center gap-1 mt-1">
+                            <Star className="w-3 h-3 text-[#F59E0B] fill-[#F59E0B]" />
+                            <span className="text-[10px] font-medium">4.8</span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
 
-            </Card>
-          </div>
+              {/* Actions */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                <Link href={`/treatments/${selectedTreatment.id}`} className="w-full">
+                  <button className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-[#7657FF] text-white text-[14px] font-medium hover:bg-[#6042EE] transition-colors shadow-sm cursor-pointer">
+                    View Full Details <ArrowRight className="w-4 h-4" />
+                  </button>
+                </Link>
+                <Link href="/hospitals" className="w-full">
+                  <button className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-white border border-[#DCE7E9] text-[#17151F] text-[14px] font-medium hover:border-[#A99AFF] hover:bg-[#F8F7FC] transition-colors cursor-pointer">
+                    <BarChart className="w-4 h-4" /> Compare Hospitals
+                  </button>
+                </Link>
+              </div>
 
+            </div>
+          )}
         </div>
-
       </div>
     </div>
   );

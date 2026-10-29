@@ -80,15 +80,15 @@ export default function MedicalTravelPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F8F7FC] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto space-y-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <Badge variant="outline" className="bg-emerald-50 text-emerald-800 border-emerald-200 mb-3">
+          <Badge variant="outline" className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30 mb-3">
             Section 14 – 17: Medical Travel & Logistics Hub
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#17151F] tracking-tight mb-4">
             Medical Travel & Logistics
           </h1>
           <p className="text-slate-600 text-base md:text-lg">
@@ -97,12 +97,12 @@ export default function MedicalTravelPage() {
         </div>
 
         {/* Tab Selector */}
-        <div className="flex flex-wrap gap-2 justify-center bg-white p-2 rounded-2xl border border-slate-200 shadow-xs max-w-2xl mx-auto">
+        <div className="flex flex-wrap gap-2 justify-center bg-white p-2 rounded-2xl border border-[#E2DEFB] shadow-xs max-w-2xl mx-auto">
           <Button 
             variant={activeTab === "visa" ? "default" : "ghost"}
             size="sm"
             onClick={() => setActiveTab("visa")}
-            className={`rounded-xl text-xs font-semibold ${activeTab === "visa" ? 'bg-emerald-600 text-white' : 'text-slate-600 hover:text-emerald-700'}`}
+            className={`rounded-xl text-xs font-semibold ${activeTab === "visa" ? 'bg-[#7657FF]/15 text-white' : 'text-slate-600 hover:text-[#7657FF]'}`}
           >
             <FileCheck className="w-4 h-4 mr-1.5" /> Visa & AI Document Checker
           </Button>
@@ -111,7 +111,7 @@ export default function MedicalTravelPage() {
             variant={activeTab === "hotels" ? "default" : "ghost"}
             size="sm"
             onClick={() => setActiveTab("hotels")}
-            className={`rounded-xl text-xs font-semibold ${activeTab === "hotels" ? 'bg-emerald-600 text-white' : 'text-slate-600 hover:text-emerald-700'}`}
+            className={`rounded-xl text-xs font-semibold ${activeTab === "hotels" ? 'bg-[#7657FF]/15 text-white' : 'text-slate-600 hover:text-[#7657FF]'}`}
           >
             <Hotel className="w-4 h-4 mr-1.5" /> Recovery Accommodation
           </Button>
@@ -120,7 +120,7 @@ export default function MedicalTravelPage() {
             variant={activeTab === "transport" ? "default" : "ghost"}
             size="sm"
             onClick={() => setActiveTab("transport")}
-            className={`rounded-xl text-xs font-semibold ${activeTab === "transport" ? 'bg-emerald-600 text-white' : 'text-slate-600 hover:text-emerald-700'}`}
+            className={`rounded-xl text-xs font-semibold ${activeTab === "transport" ? 'bg-[#7657FF]/15 text-white' : 'text-slate-600 hover:text-[#7657FF]'}`}
           >
             <Car className="w-4 h-4 mr-1.5" /> Transport & Airport Transfers
           </Button>
@@ -129,7 +129,7 @@ export default function MedicalTravelPage() {
             variant={activeTab === "faq" ? "default" : "ghost"}
             size="sm"
             onClick={() => setActiveTab("faq")}
-            className={`rounded-xl text-xs font-semibold ${activeTab === "faq" ? 'bg-emerald-600 text-white' : 'text-slate-600 hover:text-emerald-700'}`}
+            className={`rounded-xl text-xs font-semibold ${activeTab === "faq" ? 'bg-[#7657FF]/15 text-white' : 'text-slate-600 hover:text-[#7657FF]'}`}
           >
             <HelpCircle className="w-4 h-4 mr-1.5" /> Travel FAQ
           </Button>
@@ -141,26 +141,26 @@ export default function MedicalTravelPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               
               {/* Progress Summary Card */}
-              <Card className="p-6 bg-white border-slate-200 rounded-3xl space-y-4">
-                <h3 className="font-bold text-slate-900 text-lg">Medical Visa Progress</h3>
+              <Card className="p-6 bg-white border-[#E2DEFB] rounded-3xl space-y-4">
+                <h3 className="font-bold text-[#17151F] text-lg">Medical Visa Progress</h3>
                 <p className="text-xs text-slate-500">Government of India e-Medical Visa (Triple Entry, 60-day validity)</p>
                 
                 <div className="space-y-3 pt-2 text-xs">
                   <div className="flex justify-between items-center py-2 border-b border-slate-100">
                     <span className="text-slate-600">Passport</span>
-                    <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200">✓ Uploaded</Badge>
+                    <Badge className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30">✓ Uploaded</Badge>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-slate-100">
                     <span className="text-slate-600">Medical Report</span>
-                    <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200">✓ Uploaded</Badge>
+                    <Badge className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30">✓ Uploaded</Badge>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-slate-100">
                     <span className="text-slate-600">Hospital Invitation</span>
-                    <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200">✓ Generated</Badge>
+                    <Badge className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30">✓ Generated</Badge>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-slate-100">
                     <span className="text-slate-600">Treatment Estimate</span>
-                    <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200">✓ Available</Badge>
+                    <Badge className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30">✓ Available</Badge>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-slate-100">
                     <span className="text-slate-600">Visa Application</span>
@@ -168,18 +168,18 @@ export default function MedicalTravelPage() {
                   </div>
                 </div>
 
-                <div className="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200 text-xs text-emerald-900">
+                <div className="p-3 bg-[#7657FF]/15/70 rounded-2xl border border-[#7657FF]/30 text-xs text-[#7657FF]">
                   <strong>Coordinator Tip:</strong> Processing typically takes 48 to 72 hours once all required documents are verified.
                 </div>
               </Card>
 
               {/* AI Document Checker Card */}
-              <Card className="lg:col-span-2 p-6 bg-white border-slate-200 rounded-3xl space-y-5">
+              <Card className="lg:col-span-2 p-6 bg-white border-[#E2DEFB] rounded-3xl space-y-5">
                 <div className="flex justify-between items-start">
                   <div>
                     <div className="flex items-center gap-2">
                       <Sparkles className="w-5 h-5 text-amber-500" />
-                      <h3 className="font-bold text-slate-900 text-lg">AI Document Checker</h3>
+                      <h3 className="font-bold text-[#17151F] text-lg">AI Document Checker</h3>
                     </div>
                     <p className="text-xs text-slate-500 mt-0.5">
                       Automated classification checks uploaded documents against mandatory Indian Embassy visa checklists.
@@ -191,7 +191,7 @@ export default function MedicalTravelPage() {
                 </div>
 
                 {uploadNotice && (
-                  <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs rounded-xl flex items-center gap-2">
+                  <div className="p-3 bg-[#7657FF]/15 border border-[#7657FF]/30 text-[#7657FF] text-xs rounded-xl flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4" /> Travel Insurance file uploaded and verified successfully!
                   </div>
                 )}
@@ -200,11 +200,11 @@ export default function MedicalTravelPage() {
                   {checklist.map((item, idx) => (
                     <div 
                       key={idx} 
-                      className={`flex items-center justify-between p-3 rounded-2xl border ${item.verified ? 'bg-slate-50 border-slate-200' : 'bg-rose-50/50 border-rose-200'}`}
+                      className={`flex items-center justify-between p-3 rounded-2xl border ${item.verified ? 'bg-[#F8F7FC] border-[#E2DEFB]' : 'bg-rose-50/50 border-rose-200'}`}
                     >
                       <div className="flex items-center gap-2.5">
                         {item.verified ? (
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-[#7657FF] shrink-0" />
                         ) : (
                           <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" />
                         )}
@@ -212,7 +212,7 @@ export default function MedicalTravelPage() {
                           {item.name}
                         </span>
                       </div>
-                      <Badge variant="outline" className={`text-[10px] ${item.verified ? 'bg-white text-emerald-700 border-emerald-200' : 'bg-rose-100 text-rose-700 border-rose-300'}`}>
+                      <Badge variant="outline" className={`text-[10px] ${item.verified ? 'bg-white text-[#7657FF] border-[#7657FF]/30' : 'bg-rose-100 text-rose-700 border-rose-300'}`}>
                         {item.status}
                       </Badge>
                     </div>
@@ -238,27 +238,27 @@ export default function MedicalTravelPage() {
         {/* SECTION 16: HOTEL & ACCOMMODATION */}
         {activeTab === "hotels" && (
           <div className="space-y-6 animate-in fade-in">
-            <Card className="p-6 bg-white border-slate-200 rounded-3xl space-y-4">
-              <h3 className="font-bold text-slate-900 text-lg">Recommended Recovery Accommodation</h3>
+            <Card className="p-6 bg-white border-[#E2DEFB] rounded-3xl space-y-4">
+              <h3 className="font-bold text-[#17151F] text-lg">Recommended Recovery Accommodation</h3>
               <p className="text-xs text-slate-500">
                 Curated apartments and guest houses optimized for patient mobility, attendant cooking, and proximity to hospital departments.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
                 {hotelList.map((hotel, idx) => (
-                  <Card key={idx} className="p-5 border-slate-200 rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-slate-50/50">
+                  <Card key={idx} className="p-5 border-[#E2DEFB] rounded-2xl flex flex-col justify-between hover:shadow-lg transition-all bg-[#F8F7FC]/50">
                     <div>
                       <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-bold text-slate-900 text-base">{hotel.name}</h4>
+                        <h4 className="font-bold text-[#17151F] text-base">{hotel.name}</h4>
                       </div>
                       <p className="text-xs text-slate-500 flex items-center gap-1 mb-3">
                         <MapPin className="w-3.5 h-3.5 text-primary" /> {hotel.distance}
                       </p>
 
-                      <div className="p-3 bg-white rounded-xl border border-slate-200/80 mb-4">
+                      <div className="p-3 bg-white rounded-xl border border-[#E2DEFB]/80 mb-4">
                         <div className="flex justify-between items-baseline">
                           <span className="text-xs text-slate-500">Nightly Rate</span>
-                          <span className="font-extrabold text-slate-900 text-base">{hotel.priceUSD}</span>
+                          <span className="font-extrabold text-[#17151F] text-base">{hotel.priceUSD}</span>
                         </div>
                         <span className="text-[10px] text-slate-400 block text-right">({hotel.priceINR})</span>
                       </div>
@@ -266,7 +266,7 @@ export default function MedicalTravelPage() {
                       <div className="space-y-1.5 text-xs text-slate-700 mb-4">
                         {hotel.facilities.map((fac, i) => (
                           <div key={i} className="flex items-center gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF] shrink-0" />
                             <span>{fac}</span>
                           </div>
                         ))}
@@ -286,14 +286,14 @@ export default function MedicalTravelPage() {
         {/* SECTION 17: TRANSPORT MODULE */}
         {activeTab === "transport" && (
           <div className="space-y-6 animate-in fade-in">
-            <Card className="p-6 md:p-8 bg-white border-slate-200 rounded-3xl shadow-sm space-y-6">
+            <Card className="p-6 md:p-8 bg-white border-[#E2DEFB] rounded-3xl shadow-sm space-y-6">
               
               <div className="flex justify-between items-start border-b border-slate-100 pb-4">
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900">Your Medical Transport Schedule</h3>
+                  <h3 className="text-2xl font-bold text-[#17151F]">Your Medical Transport Schedule</h3>
                   <p className="text-xs text-slate-500 mt-0.5">Continuous coordinated transfers from arrival to post-surgery discharge</p>
                 </div>
-                <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 text-xs font-semibold">
+                <Badge className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30 text-xs font-semibold">
                   Status: Confirmed ✓
                 </Badge>
               </div>
@@ -301,27 +301,27 @@ export default function MedicalTravelPage() {
               {/* Driver & Vehicle Card */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
-                  <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <div className="p-5 rounded-2xl bg-[#F8F7FC] border border-[#E2DEFB] space-y-4">
+                  <h4 className="font-bold text-[#17151F] text-sm flex items-center gap-2">
                     <Car className="w-4 h-4 text-primary" /> Vehicle & Chauffeur Details
                   </h4>
 
                   <div className="space-y-2 text-xs">
-                    <div className="flex justify-between py-1.5 border-b border-slate-200/60">
+                    <div className="flex justify-between py-1.5 border-b border-[#E2DEFB]/60">
                       <span className="text-slate-500">Assigned Driver</span>
-                      <span className="font-bold text-slate-900">Rajesh Kumar (Verified Chauffeur)</span>
+                      <span className="font-bold text-[#17151F]">Rajesh Kumar (Verified Chauffeur)</span>
                     </div>
-                    <div className="flex justify-between py-1.5 border-b border-slate-200/60">
+                    <div className="flex justify-between py-1.5 border-b border-[#E2DEFB]/60">
                       <span className="text-slate-500">Vehicle Model</span>
-                      <span className="font-bold text-slate-900">Toyota Innova Crysta (Air Conditioned)</span>
+                      <span className="font-bold text-[#17151F]">Toyota Innova Crysta (Air Conditioned)</span>
                     </div>
-                    <div className="flex justify-between py-1.5 border-b border-slate-200/60">
+                    <div className="flex justify-between py-1.5 border-b border-[#E2DEFB]/60">
                       <span className="text-slate-500">License Plate</span>
-                      <span className="font-bold text-slate-900 font-mono">DL 1Y B 4821</span>
+                      <span className="font-bold text-[#17151F] font-mono">DL 1Y B 4821</span>
                     </div>
-                    <div className="flex justify-between py-1.5 border-b border-slate-200/60">
+                    <div className="flex justify-between py-1.5 border-b border-[#E2DEFB]/60">
                       <span className="text-slate-500">Wheelchair Storage</span>
-                      <span className="font-semibold text-emerald-600">Available in Boot</span>
+                      <span className="font-semibold text-[#7657FF]">Available in Boot</span>
                     </div>
                     <div className="flex justify-between py-1.5">
                       <span className="text-slate-500">Driver Contact</span>
@@ -331,29 +331,29 @@ export default function MedicalTravelPage() {
                 </div>
 
                 {/* Transfer Pipeline */}
-                <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-100 space-y-4">
-                  <h4 className="font-bold text-emerald-900 text-sm flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-emerald-600" /> 5-Stage Transfer Pipeline
+                <div className="p-5 rounded-2xl bg-[#7657FF]/15/40 border border-[#7657FF]/30 space-y-4">
+                  <h4 className="font-bold text-[#7657FF] text-sm flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-[#7657FF]" /> 5-Stage Transfer Pipeline
                   </h4>
 
                   <div className="space-y-2 text-xs">
-                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-emerald-100 font-semibold text-slate-800">
-                      <span className="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px]">1</span>
+                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-[#7657FF]/30 font-semibold text-slate-800">
+                      <span className="w-6 h-6 rounded-full bg-[#7657FF]/15 text-white flex items-center justify-center text-[10px]">1</span>
                       <span>Airport Pickup (Delhi IGI Airport Terminal 3)</span>
                     </div>
-                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-emerald-100 font-semibold text-slate-800">
-                      <span className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px]">2</span>
+                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-[#7657FF]/30 font-semibold text-slate-800">
+                      <span className="w-6 h-6 rounded-full bg-[#7657FF]/15 text-white flex items-center justify-center text-[10px]">2</span>
                       <span>Hotel / Recovery Apartment Transfer</span>
                     </div>
-                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-emerald-100 font-semibold text-slate-800">
-                      <span className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px]">3</span>
+                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-[#7657FF]/30 font-semibold text-slate-800">
+                      <span className="w-6 h-6 rounded-full bg-[#7657FF]/15 text-white flex items-center justify-center text-[10px]">3</span>
                       <span>Daily Hospital Outpatient Consultation Shuttle</span>
                     </div>
-                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-emerald-100 font-semibold text-slate-800">
+                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-[#7657FF]/30 font-semibold text-slate-800">
                       <span className="w-6 h-6 rounded-full bg-slate-300 text-slate-700 flex items-center justify-center text-[10px]">4</span>
                       <span>Local Diagnostics & Pharmacy Transport</span>
                     </div>
-                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-emerald-100 font-semibold text-slate-800">
+                    <div className="flex items-center gap-3 p-2 bg-white rounded-xl border border-[#7657FF]/30 font-semibold text-slate-800">
                       <span className="w-6 h-6 rounded-full bg-slate-300 text-slate-700 flex items-center justify-center text-[10px]">5</span>
                       <span>Departure Airport Drop (With Wheelchair Escort)</span>
                     </div>
@@ -367,18 +367,18 @@ export default function MedicalTravelPage() {
 
         {/* FAQ TAB */}
         {activeTab === "faq" && (
-          <Card className="p-6 md:p-8 bg-white border-slate-200 rounded-3xl space-y-4 animate-in fade-in">
-            <h3 className="text-xl font-bold text-slate-900">Medical Travel FAQs</h3>
+          <Card className="p-6 md:p-8 bg-white border-[#E2DEFB] rounded-3xl space-y-4 animate-in fade-in">
+            <h3 className="text-xl font-bold text-[#17151F]">Medical Travel FAQs</h3>
             <div className="space-y-3 text-xs">
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div className="p-4 bg-[#F8F7FC] rounded-2xl border border-[#E2DEFB]">
                 <p className="font-bold text-slate-800 mb-1">Q: How many attendants can travel on an Indian Medical Attendant Visa (MED-X)?</p>
                 <p className="text-slate-600">A: Up to two blood relatives or companions can obtain a MED-X visa alongside the primary patient.</p>
               </div>
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div className="p-4 bg-[#F8F7FC] rounded-2xl border border-[#E2DEFB]">
                 <p className="font-bold text-slate-800 mb-1">Q: What happens if my hospital stay needs to be extended?</p>
                 <p className="text-slate-600">A: Our hospital international desk liaisons directly with the local FRRO (Foreigners Regional Registration Office) to issue visa extensions smoothly.</p>
               </div>
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div className="p-4 bg-[#F8F7FC] rounded-2xl border border-[#E2DEFB]">
                 <p className="font-bold text-slate-800 mb-1">Q: Can I pay hospital bills in foreign currencies (USD, EUR, GBP)?</p>
                 <p className="text-slate-600">A: Yes, all JCI/NABH hospitals have on-site foreign exchange desks and accept wire transfers, international credit cards, and cash within legal customs limits.</p>
               </div>

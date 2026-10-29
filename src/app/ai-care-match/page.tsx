@@ -34,7 +34,7 @@ function AICareMatchContent() {
   const searchParams = useSearchParams();
 
   // Current step in the 4-step wizard
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(() => (searchParams?.get("step") === "upload" ? 2 : 1));
   const [inputMode, setInputMode] = useState<"describe" | "upload" | "voice">("describe");
 
   // Step 1: Patient Details state
@@ -70,12 +70,6 @@ function AICareMatchContent() {
 
   // Voice recording simulation
   const [isRecording, setIsRecording] = useState(false);
-
-  useEffect(() => {
-    if (searchParams.get("step") === "upload") {
-      setCurrentStep(2);
-    }
-  }, [searchParams]);
 
   // Trigger Step 3 processing animation
   const startAIAnalysis = () => {
@@ -119,7 +113,7 @@ function AICareMatchContent() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F8F7FC] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-8">
         
         {/* Header */}
@@ -127,7 +121,7 @@ function AICareMatchContent() {
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
             <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Section 7 & 8: AI Care Match Signature Engine
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#17151F] tracking-tight">
             Welcome to MedBridge-Global
           </h1>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
@@ -136,18 +130,18 @@ function AICareMatchContent() {
         </div>
 
         {/* 4-Step Stepper Bar */}
-        <div className="p-4 bg-white rounded-3xl border border-slate-200 shadow-sm">
+        <div className="p-4 bg-white rounded-3xl border border-[#E2DEFB] shadow-sm">
           <div className="grid grid-cols-4 gap-2 text-center text-xs">
-            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 1 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-slate-50'}`}>
+            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 1 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-[#F8F7FC]'}`}>
               1. Patient Info
             </div>
-            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 2 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-slate-50'}`}>
+            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 2 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-[#F8F7FC]'}`}>
               2. Upload Reports
             </div>
-            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 3 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-slate-50'}`}>
+            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 3 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-[#F8F7FC]'}`}>
               3. AI Analysis
             </div>
-            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 4 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-slate-50'}`}>
+            <div className={`p-2 rounded-2xl transition-colors ${currentStep >= 4 ? 'bg-primary text-white font-bold' : 'text-slate-400 bg-[#F8F7FC]'}`}>
               4. AI Care Result
             </div>
           </div>
@@ -155,9 +149,9 @@ function AICareMatchContent() {
 
         {/* STEP 1: PATIENT PROVIDES INFORMATION */}
         {currentStep === 1 && (
-          <Card className="p-6 md:p-8 bg-white border-slate-200 rounded-3xl shadow-lg space-y-6 animate-in fade-in duration-300">
+          <Card className="p-6 md:p-8 bg-white border-[#E2DEFB] rounded-3xl shadow-lg space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl font-bold text-slate-900">How can we help you?</h2>
+              <h2 className="text-2xl font-bold text-[#17151F]">How can we help you?</h2>
               <p className="text-xs text-slate-500 mt-1">Select an input method to provide your clinical background:</p>
             </div>
 
@@ -197,11 +191,11 @@ function AICareMatchContent() {
 
             {/* Voice Input Modal Simulation */}
             {inputMode === "voice" && (
-              <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl text-center space-y-3">
+              <div className="p-6 bg-[#F8F7FC] border border-[#E2DEFB] rounded-2xl text-center space-y-3">
                 <div className={`w-14 h-14 rounded-full flex items-center justify-center mx-auto transition-all ${isRecording ? 'bg-rose-500 text-white animate-pulse' : 'bg-rose-100 text-rose-600'}`}>
                   <Mic className="w-6 h-6" />
                 </div>
-                <h4 className="font-bold text-slate-900 text-sm">
+                <h4 className="font-bold text-[#17151F] text-sm">
                   {isRecording ? "Listening to your voice..." : "Click to speak your healthcare requirements"}
                 </h4>
                 <p className="text-xs text-slate-500 max-w-sm mx-auto">
@@ -225,7 +219,7 @@ function AICareMatchContent() {
                 <Input 
                   value={formData.name} 
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="bg-slate-50 py-5 rounded-xl text-xs" 
+                  className="bg-[#F8F7FC] py-5 rounded-xl text-xs" 
                 />
               </div>
 
@@ -234,7 +228,7 @@ function AICareMatchContent() {
                 <Input 
                   value={formData.age} 
                   onChange={(e) => setFormData({...formData, age: e.target.value})}
-                  className="bg-slate-50 py-5 rounded-xl text-xs" 
+                  className="bg-[#F8F7FC] py-5 rounded-xl text-xs" 
                 />
               </div>
 
@@ -243,7 +237,7 @@ function AICareMatchContent() {
                 <Input 
                   value={formData.country} 
                   onChange={(e) => setFormData({...formData, country: e.target.value})}
-                  className="bg-slate-50 py-5 rounded-xl text-xs" 
+                  className="bg-[#F8F7FC] py-5 rounded-xl text-xs" 
                 />
               </div>
 
@@ -252,7 +246,7 @@ function AICareMatchContent() {
                 <select 
                   value={formData.preferredCity}
                   onChange={(e) => setFormData({...formData, preferredCity: e.target.value})}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-800"
+                  className="w-full bg-[#F8F7FC] border border-[#E2DEFB] rounded-xl p-3 text-xs text-slate-800"
                 >
                   <option value="Delhi NCR">Delhi NCR</option>
                   <option value="Mumbai">Mumbai</option>
@@ -267,7 +261,7 @@ function AICareMatchContent() {
                 <Input 
                   value={formData.budgetRange} 
                   onChange={(e) => setFormData({...formData, budgetRange: e.target.value})}
-                  className="bg-slate-50 py-5 rounded-xl text-xs" 
+                  className="bg-[#F8F7FC] py-5 rounded-xl text-xs" 
                 />
               </div>
 
@@ -276,7 +270,7 @@ function AICareMatchContent() {
                 <Input 
                   value={formData.travelDate} 
                   onChange={(e) => setFormData({...formData, travelDate: e.target.value})}
-                  className="bg-slate-50 py-5 rounded-xl text-xs" 
+                  className="bg-[#F8F7FC] py-5 rounded-xl text-xs" 
                 />
               </div>
 
@@ -285,7 +279,7 @@ function AICareMatchContent() {
                 <Input 
                   value={formData.treatmentNeed} 
                   onChange={(e) => setFormData({...formData, treatmentNeed: e.target.value})}
-                  className="bg-slate-50 py-5 rounded-xl text-xs" 
+                  className="bg-[#F8F7FC] py-5 rounded-xl text-xs" 
                 />
               </div>
 
@@ -295,7 +289,7 @@ function AICareMatchContent() {
                   rows={3}
                   value={formData.medicalHistory} 
                   onChange={(e) => setFormData({...formData, medicalHistory: e.target.value})}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-800" 
+                  className="w-full bg-[#F8F7FC] border border-[#E2DEFB] rounded-xl p-3 text-xs text-slate-800" 
                 />
               </div>
             </div>
@@ -313,37 +307,37 @@ function AICareMatchContent() {
 
         {/* STEP 2: UPLOAD MEDICAL DOCUMENTS */}
         {currentStep === 2 && (
-          <Card className="p-6 md:p-8 bg-white border-slate-200 rounded-3xl shadow-lg space-y-6 animate-in fade-in duration-300">
+          <Card className="p-6 md:p-8 bg-white border-[#E2DEFB] rounded-3xl shadow-lg space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl font-bold text-slate-900">Upload Medical Documents</h2>
+              <h2 className="text-2xl font-bold text-[#17151F]">Upload Medical Documents</h2>
               <p className="text-xs text-slate-500 mt-1">Our AI extracts structured clinical history and imaging findings directly from your files.</p>
             </div>
 
             {/* Drag and Drop Zone */}
-            <label className="border-2 border-dashed border-slate-300 rounded-3xl p-8 flex flex-col items-center justify-center text-center bg-slate-50 hover:bg-emerald-50/50 hover:border-emerald-500 transition-all cursor-pointer block">
-              <div className="w-14 h-14 bg-white rounded-2xl shadow-xs flex items-center justify-center text-emerald-600 mb-3 border border-zinc-200">
+            <label className="border-2 border-dashed border-slate-300 rounded-3xl p-8 flex flex-col items-center justify-center text-center bg-[#F8F7FC] hover:bg-[#7657FF]/15/50 hover:border-[#7657FF]/30 transition-all cursor-pointer block">
+              <div className="w-14 h-14 bg-white rounded-2xl shadow-xs flex items-center justify-center text-[#7657FF] mb-3 border border-zinc-200">
                 <Upload className="w-7 h-7" />
               </div>
-              <h4 className="font-bold text-slate-900 text-sm mb-1">Click to browse or drop your reports here</h4>
+              <h4 className="font-bold text-[#17151F] text-sm mb-1">Click to browse or drop your reports here</h4>
               <p className="text-xs text-slate-500 mb-3">Supported formats: PDF, JPG, PNG (Up to 25MB)</p>
-              <span className="text-xs font-semibold text-emerald-700 bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+              <span className="text-xs font-semibold text-[#7657FF] bg-white px-3 py-1.5 rounded-lg border border-[#E2DEFB]">
                 Choose Local Files
               </span>
               <input type="file" multiple className="hidden" onChange={handleFileUpload} />
             </label>
 
             {/* Supported Document Checklist */}
-            <div className="p-4 bg-emerald-50/50 border border-emerald-100 rounded-2xl">
-              <h4 className="text-xs font-bold text-emerald-900 uppercase tracking-wider mb-2">Supported Document Types</h4>
+            <div className="p-4 bg-[#7657FF]/15/50 border border-[#7657FF]/30 rounded-2xl">
+              <h4 className="text-xs font-bold text-[#7657FF] uppercase tracking-wider mb-2">Supported Document Types</h4>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-700">
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Medical Reports</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> MRI Scan</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> CT Scan Report</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Blood Panel</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Prescription</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Treatment Summary</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Discharge Summary</span>
-                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Angiogram CD/Doc</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> Medical Reports</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> MRI Scan</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> CT Scan Report</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> Blood Panel</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> Prescription</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> Treatment Summary</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> Discharge Summary</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#7657FF]" /> Angiogram CD/Doc</span>
               </div>
             </div>
 
@@ -351,7 +345,7 @@ function AICareMatchContent() {
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase text-slate-400">Attached Documents ({uploadedFiles.length})</span>
               {uploadedFiles.map((file, idx) => (
-                <div key={idx} className="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
+                <div key={idx} className="flex items-center justify-between p-3.5 bg-[#F8F7FC] border border-[#E2DEFB] rounded-xl text-xs">
                   <div className="flex items-center gap-3">
                     <FileText className="w-4 h-4 text-primary" />
                     <div>
@@ -359,7 +353,7 @@ function AICareMatchContent() {
                       <p className="text-[10px] text-slate-500">{file.size} • Classified: {file.type}</p>
                     </div>
                   </div>
-                  <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 text-[10px]">
+                  <Badge variant="outline" className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30 text-[10px]">
                     Ready for OCR
                   </Badge>
                 </div>
@@ -383,7 +377,7 @@ function AICareMatchContent() {
 
         {/* STEP 3: AI ANALYSIS PROGRESS */}
         {currentStep === 3 && (
-          <Card className="p-10 md:p-14 bg-white border-slate-200 rounded-3xl shadow-xl text-center space-y-8 animate-in zoom-in-95">
+          <Card className="p-10 md:p-14 bg-white border-[#E2DEFB] rounded-3xl shadow-xl text-center space-y-8 animate-in zoom-in-95">
             <div className="relative w-24 h-24 mx-auto">
               <div className="absolute inset-0 rounded-full border-4 border-slate-100"></div>
               <div 
@@ -395,7 +389,7 @@ function AICareMatchContent() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-2xl font-bold text-slate-900">AI Medical Intelligence Engine</h3>
+              <h3 className="text-2xl font-bold text-[#17151F]">AI Medical Intelligence Engine</h3>
               <p className="text-xs text-slate-500 font-mono">
                 {processingSteps[analysisStageIndex]}
               </p>
@@ -411,19 +405,19 @@ function AICareMatchContent() {
 
             {/* Checklist of subtasks */}
             <div className="max-w-md mx-auto text-left space-y-2 text-xs">
-              <div className={`flex items-center gap-2 ${analysisProgress >= 20 ? 'text-emerald-700 font-semibold' : 'text-slate-400'}`}>
+              <div className={`flex items-center gap-2 ${analysisProgress >= 20 ? 'text-[#7657FF] font-semibold' : 'text-slate-400'}`}>
                 <CheckCircle2 className="w-4 h-4" /> Reading document & OCR text extraction
               </div>
-              <div className={`flex items-center gap-2 ${analysisProgress >= 40 ? 'text-emerald-700 font-semibold' : 'text-slate-400'}`}>
+              <div className={`flex items-center gap-2 ${analysisProgress >= 40 ? 'text-[#7657FF] font-semibold' : 'text-slate-400'}`}>
                 <CheckCircle2 className="w-4 h-4" /> Extracting medical entities & clinical history
               </div>
-              <div className={`flex items-center gap-2 ${analysisProgress >= 60 ? 'text-emerald-700 font-semibold' : 'text-slate-400'}`}>
+              <div className={`flex items-center gap-2 ${analysisProgress >= 60 ? 'text-[#7657FF] font-semibold' : 'text-slate-400'}`}>
                 <CheckCircle2 className="w-4 h-4" /> Identifying medical specialty (Cardiology / CABG)
               </div>
-              <div className={`flex items-center gap-2 ${analysisProgress >= 80 ? 'text-emerald-700 font-semibold' : 'text-slate-400'}`}>
+              <div className={`flex items-center gap-2 ${analysisProgress >= 80 ? 'text-[#7657FF] font-semibold' : 'text-slate-400'}`}>
                 <CheckCircle2 className="w-4 h-4" /> Calculating MedBridge-Global Explainable Match Scores
               </div>
-              <div className={`flex items-center gap-2 ${analysisProgress >= 100 ? 'text-emerald-700 font-semibold' : 'text-slate-400'}`}>
+              <div className={`flex items-center gap-2 ${analysisProgress >= 100 ? 'text-[#7657FF] font-semibold' : 'text-slate-400'}`}>
                 <CheckCircle2 className="w-4 h-4" /> Generating doctor-ready structured summary
               </div>
             </div>
@@ -435,46 +429,46 @@ function AICareMatchContent() {
           <div className="space-y-6 animate-in fade-in duration-300">
             
             {/* Main Result Card */}
-            <Card className="p-6 md:p-8 bg-white border-slate-200 rounded-3xl shadow-xl space-y-6">
+            <Card className="p-6 md:p-8 bg-white border-[#E2DEFB] rounded-3xl shadow-xl space-y-6">
               
               <div className="flex flex-wrap justify-between items-start gap-4 border-b border-slate-100 pb-5">
                 <div>
                   <div className="flex items-center gap-2">
-                    <Badge className="bg-emerald-50 text-emerald-700 border-emerald-200 text-xs font-bold">
+                    <Badge className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30 text-xs font-bold">
                       ✓ Analysis Complete
                     </Badge>
                     <span className="text-xs text-slate-500">Case ID: MEDI-88421</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17151F] mt-1">
                     AI Care Summary & Provider Recommendations
                   </h2>
                 </div>
 
                 <div className="text-right">
                   <div className="text-xs text-slate-500">Top Match Score</div>
-                  <div className="text-3xl font-extrabold text-emerald-600">96%</div>
+                  <div className="text-3xl font-extrabold text-[#7657FF]">96%</div>
                   <span className="text-[10px] text-slate-400">Apollo / Medanta</span>
                 </div>
               </div>
 
               {/* Case Findings Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2">
+                <div className="p-4 bg-[#F8F7FC] rounded-2xl border border-[#E2DEFB]/80 space-y-2">
                   <span className="font-bold text-slate-400 uppercase text-[10px] tracking-wider block">Recommended Specialty</span>
                   <p className="text-base font-bold text-primary">Cardiology ❤️ (Cardiothoracic Surgery)</p>
                   <p className="text-slate-600">Possible Treatment: Off-pump Coronary Artery Bypass Graft (CABG)</p>
                 </div>
 
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2">
+                <div className="p-4 bg-[#F8F7FC] rounded-2xl border border-[#E2DEFB]/80 space-y-2">
                   <span className="font-bold text-slate-400 uppercase text-[10px] tracking-wider block">Estimated Treatment Package</span>
-                  <p className="text-base font-bold text-emerald-700">$5,800 – $7,500 USD (₹4.8L – ₹6.2L)</p>
+                  <p className="text-base font-bold text-[#7657FF]">$5,800 – $7,500 USD (₹4.8L – ₹6.2L)</p>
                   <p className="text-slate-600">Inclusive of 6 days stay, surgeon fees, and post-op ICU monitoring</p>
                 </div>
               </div>
 
               {/* Important Clinical Information Found */}
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2 text-xs">
-                <h4 className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+              <div className="p-4 bg-[#F8F7FC] rounded-2xl border border-[#E2DEFB] space-y-2 text-xs">
+                <h4 className="font-bold text-[#17151F] text-sm flex items-center gap-1.5">
                   <FileSearch className="w-4 h-4 text-primary" /> Important Information Found in Documents:
                 </h4>
                 <ul className="space-y-1.5 pl-5 list-disc text-slate-700">
@@ -485,15 +479,15 @@ function AICareMatchContent() {
               </div>
 
               {/* Section 8: Explainable MedBridge-Global Match Score Model Breakdown */}
-              <div className="p-5 bg-gradient-to-br from-emerald-50/70 to-teal-50/50 rounded-2xl border border-emerald-200 space-y-4">
+              <div className="p-5 bg-gradient-to-br from-emerald-50/70 to-teal-50/50 rounded-2xl border border-[#7657FF]/30 space-y-4">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
-                    <BrainCircuit className="w-5 h-5 text-emerald-700" />
-                    <h4 className="font-bold text-slate-900 text-sm">
+                    <BrainCircuit className="w-5 h-5 text-[#7657FF]" />
+                    <h4 className="font-bold text-[#17151F] text-sm">
                       Section 8: MedBridge-Global Match Score Algorithm Breakdown
                     </h4>
                   </div>
-                  <Badge variant="outline" className="bg-white text-emerald-800 border-emerald-200 text-[10px]">
+                  <Badge variant="outline" className="bg-white text-[#7657FF] border-[#7657FF]/30 text-[10px]">
                     Hybrid Model (Rule + ML)
                   </Badge>
                 </div>
@@ -503,37 +497,37 @@ function AICareMatchContent() {
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                  <div className="p-2.5 bg-white rounded-xl border border-emerald-100">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#7657FF]/30">
                     <span className="text-slate-500 block text-[10px]">Specialty Match</span>
-                    <span className="font-bold text-slate-900 text-sm">30% (Full Weight)</span>
+                    <span className="font-bold text-[#17151F] text-sm">30% (Full Weight)</span>
                   </div>
-                  <div className="p-2.5 bg-white rounded-xl border border-emerald-100">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#7657FF]/30">
                     <span className="text-slate-500 block text-[10px]">Treatment Match</span>
-                    <span className="font-bold text-slate-900 text-sm">20% (Full Weight)</span>
+                    <span className="font-bold text-[#17151F] text-sm">20% (Full Weight)</span>
                   </div>
-                  <div className="p-2.5 bg-white rounded-xl border border-emerald-100">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#7657FF]/30">
                     <span className="text-slate-500 block text-[10px]">Budget Fit</span>
-                    <span className="font-bold text-slate-900 text-sm">15% (Within $10k)</span>
+                    <span className="font-bold text-[#17151F] text-sm">15% (Within $10k)</span>
                   </div>
-                  <div className="p-2.5 bg-white rounded-xl border border-emerald-100">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#7657FF]/30">
                     <span className="text-slate-500 block text-[10px]">Facility & Accreditation</span>
-                    <span className="font-bold text-slate-900 text-sm">10% (JCI/NABH)</span>
+                    <span className="font-bold text-[#17151F] text-sm">10% (JCI/NABH)</span>
                   </div>
-                  <div className="p-2.5 bg-white rounded-xl border border-emerald-100">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#7657FF]/30">
                     <span className="text-slate-500 block text-[10px]">Location Preference</span>
-                    <span className="font-bold text-slate-900 text-sm">10% (Delhi NCR)</span>
+                    <span className="font-bold text-[#17151F] text-sm">10% (Delhi NCR)</span>
                   </div>
-                  <div className="p-2.5 bg-white rounded-xl border border-emerald-100">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#7657FF]/30">
                     <span className="text-slate-500 block text-[10px]">Language Support</span>
-                    <span className="font-bold text-slate-900 text-sm">5% (English/Hausa)</span>
+                    <span className="font-bold text-[#17151F] text-sm">5% (English/Hausa)</span>
                   </div>
-                  <div className="p-2.5 bg-white rounded-xl border border-emerald-100">
+                  <div className="p-2.5 bg-white rounded-xl border border-[#7657FF]/30">
                     <span className="text-slate-500 block text-[10px]">Patient Preferences</span>
-                    <span className="font-bold text-slate-900 text-sm">10% (Attendant)</span>
+                    <span className="font-bold text-[#17151F] text-sm">10% (Attendant)</span>
                   </div>
-                  <div className="p-2.5 bg-emerald-50 rounded-xl border border-emerald-200 flex flex-col justify-center text-center">
-                    <span className="text-emerald-800 font-bold text-[10px]">Overall Match Score</span>
-                    <span className="font-extrabold text-emerald-800 text-base">96%</span>
+                  <div className="p-2.5 bg-[#7657FF]/15 rounded-xl border border-[#7657FF]/30 flex flex-col justify-center text-center">
+                    <span className="text-[#7657FF] font-bold text-[10px]">Overall Match Score</span>
+                    <span className="font-extrabold text-[#7657FF] text-base">96%</span>
                   </div>
                 </div>
               </div>
@@ -570,7 +564,7 @@ function AICareMatchContent() {
 
                 <Button 
                   onClick={() => router.push('/dashboard/patient')}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl py-6 text-xs font-semibold shadow-md flex items-center justify-center gap-2"
+                  className="bg-[#7657FF]/15 hover:bg-[#7657FF]/15 text-white rounded-xl py-6 text-xs font-semibold shadow-md flex items-center justify-center gap-2"
                 >
                   <UserCheck className="w-4 h-4" />
                   Request Dedicated Coordinator
@@ -589,7 +583,7 @@ function AICareMatchContent() {
 
 export default function AICareMatchPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center text-xs text-slate-400">Loading AI Care Match Engine...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#F8F7FC] flex items-center justify-center text-xs text-slate-400">Loading AI Care Match Engine...</div>}>
       <AICareMatchContent />
     </Suspense>
   );

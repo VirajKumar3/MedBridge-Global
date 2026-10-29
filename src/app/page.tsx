@@ -1,460 +1,419 @@
-"use client";
-
-
+import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
-import { 
-  Sparkles, 
-  Hospital, 
-  Stethoscope, 
-  Wallet, 
-  Plane, 
-  FileCheck, 
-  Hotel, 
-  RotateCcw, 
-  BrainCircuit, 
-  ShieldCheck, 
-  ArrowRight, 
-  CheckCircle2, 
-  Star, 
-  FileText, 
-  Globe2, 
-  Clock, 
-  MessageSquare,
-  Search,
-  Languages
-} from "lucide-react";
-import { TREATMENTS, HOSPITALS } from "@/lib/data";
+import { ArrowRight, Globe, ShieldCheck, FileText, HeartHandshake, Activity, ClipboardCheck, Calendar, Clock, Check, Star, Upload, ChevronDown } from "lucide-react";
 
 export default function Home() {
-  const router = useRouter();
-
-  const whyCards = [
-    {
-      icon: BrainCircuit,
-      title: "🤖 AI Smart Matching",
-      desc: "Transparent hybrid recommendation scoring factoring in medical condition, budget, accreditation, and location preferences.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    },
-    {
-      icon: Hospital,
-      title: "🏥 Verified Hospitals",
-      desc: "Partnered exclusively with top JCI & NABH accredited quaternary care medical centers across Delhi NCR, Mumbai, and Chennai.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    },
-    {
-      icon: Stethoscope,
-      title: "👨‍⚕️ Expert Specialists",
-      desc: "Direct access to internationally renowned surgeons and doctors with decades of surgical expertise and research accolades.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    },
-    {
-      icon: Wallet,
-      title: "💰 Transparent Estimates",
-      desc: "Itemized package quotes before departure. Zero surprise fees, saving 65% to 80% compared to Western healthcare costs.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    },
-    {
-      icon: Plane,
-      title: "✈️ Travel Support",
-      desc: "End-to-end logistics coordination including flight bookings, VIP airport meet-and-greet, and dedicated medical transfers.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    },
-    {
-      icon: FileCheck,
-      title: "📄 Visa Assistance",
-      desc: "Instant hospital invitation letters and an automated AI document checklist to expedite Medical Visa approval.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    },
-    {
-      icon: Hotel,
-      title: "🏨 Accommodation",
-      desc: "Pre-screened recovery apartments and guest houses with kitchens and wheelchair accessibility within 2 km of hospitals.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    },
-    {
-      icon: RotateCcw,
-      title: "🔄 Post-Treatment Care",
-      desc: "Synchronized digital follow-up consultations, medication reminders, and tele-health monitoring once you return home.",
-      color: "bg-zinc-100 text-zinc-900 border-zinc-200"
-    }
-  ];
-
   return (
-    <div className="flex flex-col items-center overflow-x-hidden">
-      
-      {/* Hero Section */}
-      <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 md:pt-20 md:pb-28">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-100/80 via-zinc-50/40 to-white"></div>
-        
-        <div className="text-center max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-100/90 px-4 py-1.5 text-xs md:text-sm font-semibold text-zinc-900 mb-6 shadow-xs backdrop-blur-sm">
-              <span className="flex h-2 w-2 rounded-full bg-zinc-900 mr-2 animate-ping"></span>
-              ✚ HealIndiaAI • MedBridge-Global Platform
+    <div className="flex flex-col min-h-screen pb-20 space-y-32 overflow-x-hidden">
+
+      {/* 1. Hero Section - Full Bleed Edge-to-Edge with Bright Lilac/Violet Theme */}
+      <section className="relative isolate flex min-h-[95vh] sm:min-h-screen flex-col bg-[#F8F7FC] overflow-hidden px-6 pt-28 sm:pt-32 pb-16 animate-reveal border-b border-[#E2DEFB] shadow-[0_8px_30px_rgba(118,87,255,0.06)]">
+
+        {/* Hero Background Image & Atmospheric Overlays - Full Bleed */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <Image
+            src="/hero-bg-light.png"
+            alt="International Medical Travel & Care Coordination in India"
+            fill
+            priority
+            quality={100}
+            unoptimized
+            sizes="100vw"
+            className="object-cover object-right lg:object-center opacity-90 transition-opacity duration-1000"
+          />
+          {/* Subtle dark-tint overlay to deepen the background and elevate contrast */}
+          <div className="absolute inset-0 bg-[#17151F]/15 mix-blend-multiply" />
+          {/* Directional gradient for crystal-clear readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F8F7FC]/80 via-[#F8F7FC]/35 to-transparent sm:via-[#F8F7FC]/20 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F8F7FC]/70 via-transparent to-[#17151F]/20" />
+        </div>
+
+        <div className="max-w-[1240px] w-full mx-auto relative z-10 flex flex-col lg:flex-row items-center flex-1">
+
+          {/* Left Content */}
+          <div className="relative z-10 max-w-2xl lg:w-3/5 text-left">
+            {/* Eyebrow with Brand Tagline */}
+            <div className="flex flex-wrap items-center gap-2.5 mb-6">
+              <span className="text-[11px] font-bold tracking-[0.1em] uppercase text-[#7657FF] bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#7657FF]/25 shadow-xs">
+                Right Treatment • Right Hospital • Right Price • One Journey
+              </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-950 mb-6 leading-tight">
-              MEDBRIDGE-GLOBAL <br />
-              <span className="text-gradient">Your Healthcare Journey Beyond Borders</span>
+            {/* Heading */}
+            <h1 className="text-[40px] leading-[1.1] md:text-[60px] md:leading-[1.05] font-medium text-[#17151F] tracking-tight mb-6">
+              Premium medical care in India, <span className="text-[#7657FF]">coordinated for you</span>
             </h1>
 
-            <p className="mt-4 text-lg sm:text-xl text-zinc-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              AI-Powered Hospital Matching • Medical Travel Support • Treatment Coordination • Post-Treatment Care. One connected system for international patients seeking world-class healthcare in India.
+            {/* Subtitle */}
+            <p className="text-[17px] text-[#666276] leading-relaxed mb-8 md:mb-10 max-w-[500px]">
+              We connect international patients with accredited Indian quaternary hospitals, transparent pricing, and end-to-end medical travel guidance.
             </p>
-            
-            {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <Button 
-                onClick={() => router.push('/ai-care-match')} 
-                size="lg" 
-                className="rounded-full px-8 py-6 text-base md:text-lg bg-zinc-900 hover:bg-black text-white shadow-lg shadow-zinc-900/20 cursor-pointer flex items-center gap-2 group"
-              >
-                <Sparkles className="w-5 h-5 text-zinc-300 group-hover:rotate-12 transition-transform" />
-                Start Your Medical Journey
-              </Button>
-              <Button 
-                onClick={() => router.push('/ai-care-match?step=upload')} 
-                variant="outline" 
-                size="lg" 
-                className="rounded-full px-8 py-6 text-base md:text-lg border-zinc-300 hover:border-zinc-900 text-zinc-900 hover:text-black bg-white shadow-xs cursor-pointer flex items-center gap-2"
-              >
-                <FileText className="w-5 h-5 text-zinc-800" />
-                Upload Medical Reports
-              </Button>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <Link href="/ai-care-match" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#7657FF] text-white font-medium text-[15px] shadow-[0_8px_24px_-4px_rgba(118,87,255,0.45)] hover:-translate-y-0.5 hover:bg-[#6042EE] transition-all flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#7657FF] cursor-pointer">
+                  Get matched with a hospital <ArrowRight className="w-4 h-4 text-white" />
+                </button>
+              </Link>
+              <Link href="/hospitals" className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/90 hover:bg-white backdrop-blur-md text-[#17151F] border border-[#E2DEFB] font-medium text-[15px] transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#17151F] cursor-pointer shadow-xs">
+                  Explore hospitals
+                </button>
+              </Link>
             </div>
 
-            {/* Quick Hero Highlights */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-medium text-zinc-600">
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-zinc-950" /> JCI & NABH Accredited</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-zinc-950" /> 70% Cost Advantage</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-zinc-950" /> 24x7 Medical Coordinator</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-zinc-950" /> Fast-Track Medical Visa</span>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Floating AI & Patient Experience Mockup */}
-        <div className="relative mt-16 max-w-5xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="glass-panel rounded-3xl overflow-hidden border border-zinc-200/90 shadow-2xl bg-white/90"
-          >
-            {/* Top Mock Window Bar */}
-            <div className="h-10 bg-zinc-100/90 border-b border-zinc-200 flex items-center justify-between px-5">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-zinc-300"></div>
-                <div className="w-3 h-3 rounded-full bg-zinc-400"></div>
-                <div className="w-3 h-3 rounded-full bg-zinc-500"></div>
-              </div>
-              <div className="text-xs text-zinc-500 font-mono flex items-center gap-1.5">
-                <BrainCircuit className="w-3.5 h-3.5 text-zinc-800" />
-                ai-care-match.healindia.ai/engine-v2.4
-              </div>
-              <Badge variant="outline" className="text-[10px] bg-zinc-100 text-zinc-800 border-zinc-200">
-                Ready
-              </Badge>
-            </div>
-
-            {/* Mock Body */}
-            <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-              
-              <div className="lg:col-span-2 space-y-5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center text-zinc-900 border border-zinc-200">
-                      <BrainCircuit className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-zinc-950 text-lg">AI Clinical Case Structuring</h3>
-                      <p className="text-xs text-zinc-500">Angiography & Echocardiogram (Extracted via OCR Engine)</p>
-                    </div>
-                  </div>
-                  <Badge className="bg-zinc-900 text-white font-semibold">96% Hospital Fit</Badge>
-                </div>
-
-                <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 space-y-2 text-xs text-zinc-700">
-                  <p className="font-semibold text-zinc-950 flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-zinc-900" /> Primary Diagnosis Detected:
-                  </p>
-                  <p className="pl-4 text-zinc-600">Severe multi-vessel coronary artery disease. Suggested clinical pathway: Off-pump Coronary Artery Bypass Graft (CABG).</p>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    <span className="px-2.5 py-1 bg-zinc-100 text-zinc-800 border border-zinc-200 rounded-md font-medium">Cardiology</span>
-                    <span className="px-2.5 py-1 bg-zinc-100 text-zinc-800 border border-zinc-200 rounded-md font-medium">Robotic Assisted</span>
-                    <span className="px-2.5 py-1 bg-zinc-100 text-zinc-800 border border-zinc-200 rounded-md font-medium">Estimated Stay: 6 Days</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-3 text-center">
-                  <div className="p-3 bg-white border border-zinc-200 rounded-xl shadow-2xs">
-                    <div className="text-[11px] text-zinc-500">US/UK Cost</div>
-                    <div className="text-sm font-bold text-zinc-400 line-through">$85,000</div>
-                  </div>
-                  <div className="p-3 bg-zinc-100/90 border border-zinc-200 rounded-xl shadow-2xs">
-                    <div className="text-[11px] text-zinc-600 font-medium">India Package</div>
-                    <div className="text-base font-extrabold text-zinc-950">$6,800</div>
-                  </div>
-                  <div className="p-3 bg-zinc-900 text-white border border-zinc-900 rounded-xl shadow-2xs">
-                    <div className="text-[11px] text-zinc-300 font-medium">Patient Savings</div>
-                    <div className="text-base font-extrabold text-white">~ 82%</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Side Widget: Top Matched Hospital */}
-              <div className="border-t lg:border-t-0 lg:border-l border-zinc-200 lg:pl-6 flex flex-col justify-between space-y-4">
-                <div>
-                  <div className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-                    #1 Ranked Hospital
-                  </div>
-                  <h4 className="font-bold text-zinc-950 text-base">Medanta - The Medicity</h4>
-                  <p className="text-xs text-zinc-500">Delhi NCR • JCI & NABH Accredited</p>
-                  
-                  <div className="mt-3 space-y-2 text-xs">
-                    <div className="flex justify-between py-1 border-b border-zinc-100">
-                      <span className="text-zinc-500">Match Score</span>
-                      <span className="font-bold text-zinc-950">96 / 100</span>
-                    </div>
-                    <div className="flex justify-between py-1 border-b border-zinc-100">
-                      <span className="text-zinc-500">International Desk</span>
-                      <span className="font-semibold text-zinc-800">24/7 Dedicated</span>
-                    </div>
-                    <div className="flex justify-between py-1 border-b border-zinc-100">
-                      <span className="text-zinc-500">Chief Surgeon</span>
-                      <span className="font-semibold text-zinc-800">Dr. Naresh Trehan</span>
-                    </div>
-                  </div>
-                </div>
-
-                <Button 
-                  onClick={() => router.push('/ai-care-match')}
-                  className="w-full bg-zinc-900 hover:bg-black text-white rounded-xl shadow-md text-xs py-2.5 font-semibold cursor-pointer"
-                >
-                  Test Care Match Engine <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </Button>
-              </div>
-
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Section 1: Why MedBridge-Global? / Why HealIndiaAI? */}
-      <section className="w-full bg-white border-y border-zinc-200 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="outline" className="bg-zinc-100 text-zinc-800 border-zinc-200 mb-3 font-semibold">
-              Section 1
-            </Badge>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-950 tracking-tight mb-4">
-              Why MedBridge-Global?
-            </h2>
-            <p className="text-zinc-600 text-lg">
-              We bridge the gap between complex cross-border medical travel and effortless, intelligent healthcare delivery with 8 integrated pillars.
+            <p className="text-[13px] text-[#666276] mt-4 font-medium flex items-center justify-center sm:justify-start gap-2">
+              <Check className="w-4 h-4 text-[#7657FF]" /> Free • No signup needed • Reply within 24h
             </p>
+
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyCards.map((card, idx) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="p-6 rounded-2xl border border-zinc-200 bg-zinc-50/60 hover:bg-white hover:border-zinc-400 hover:shadow-xl transition-all flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-5 ${card.color} group-hover:scale-110 transition-transform`}>
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-lg font-bold text-zinc-950 mb-2 group-hover:text-black transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm text-zinc-600 leading-relaxed">
-                      {card.desc}
-                    </p>
-                  </div>
-                  <div className="mt-5 pt-3 border-t border-zinc-200 flex items-center text-xs font-semibold text-zinc-950 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+
 
         </div>
-      </section>
 
-      {/* Featured Treatments Grid Preview */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Specialized Care</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 mt-1">
-              Top Medical Treatments in India
-            </h2>
-            <p className="text-zinc-500 text-sm mt-1 max-w-xl">
-              World-class robotic surgeries, oncology, and transplants at a fraction of global costs.
-            </p>
-          </div>
-          <Link href="/treatments" className="mt-4 md:mt-0 font-semibold text-zinc-900 hover:underline text-sm flex items-center gap-1">
-            Explore All 10 Specialties <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {TREATMENTS.slice(0, 4).map((treatment) => (
-            <Card key={treatment.id} className="p-6 hover:shadow-lg transition-all border-zinc-200 flex flex-col justify-between bg-white">
-              <div>
-                <div className="text-xs font-semibold text-zinc-500 mb-1">{treatment.category}</div>
-                <h3 className="font-bold text-zinc-950 text-lg mb-2">{treatment.name}</h3>
-                <p className="text-xs text-zinc-600 line-clamp-2 mb-4">{treatment.description}</p>
-                
-                <div className="space-y-2 text-xs border-t border-zinc-100 pt-3 mb-4">
-                  <div className="flex justify-between">
-                    <span className="text-zinc-500">Estimated Cost:</span>
-                    <span className="font-bold text-zinc-950">{treatment.costRangeUSD}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-zinc-500">Hospital Stay:</span>
-                    <span className="font-medium text-zinc-700">{treatment.hospitalStay}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-zinc-500">Trip Duration:</span>
-                    <span className="font-medium text-zinc-700">{treatment.tripDuration}</span>
-                  </div>
-                </div>
-              </div>
-
-              <Button 
-                variant="outline" 
-                size="sm" 
-                onClick={() => router.push(`/treatments#${treatment.id}`)}
-                className="w-full text-xs font-semibold border-zinc-300 hover:bg-zinc-100 text-zinc-900"
-              >
-                View Treatment Profile
-              </Button>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Hospital Network Preview */}
-      <section className="w-full bg-zinc-50/70 border-y border-zinc-200 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        {/* Bottom Trust Bar */}
+        <div className="w-full max-w-[1240px] mx-auto mt-20 pt-7 border-t border-[#E2DEFB] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-4 relative z-20">
+          {/* Stats */}
+          <div className="flex flex-wrap items-center gap-8 lg:gap-12">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Accredited Centers</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 mt-1">
-                India's Top Quaternary Hospitals
-              </h2>
-              <p className="text-zinc-500 text-sm mt-1 max-w-xl">
-                Only institutions meeting rigorous JCI, NABH, and international patient care benchmarks.
-              </p>
+              <p className="text-[28px] font-medium text-[#17151F] leading-none mb-1">50+</p>
+              <p className="text-[12px] font-medium text-[#666276] uppercase tracking-wider">Top Hospitals</p>
             </div>
-            <Link href="/hospitals" className="mt-4 md:mt-0 font-semibold text-zinc-900 hover:underline text-sm flex items-center gap-1">
-              Compare All Hospitals <ArrowRight className="w-4 h-4" />
+            <div>
+              <p className="text-[28px] font-medium text-[#17151F] leading-none mb-1">12</p>
+              <p className="text-[12px] font-medium text-[#666276] uppercase tracking-wider">Specialties</p>
+            </div>
+            <div>
+              <p className="text-[28px] font-medium text-[#7657FF] leading-none mb-1">60%</p>
+              <p className="text-[12px] font-medium text-[#666276] uppercase tracking-wider">Avg. Savings</p>
+            </div>
+          </div>
+
+          <div className="hidden md:block w-[1px] h-12 bg-[#E2DEFB]"></div>
+
+          {/* Accreditations */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 bg-white/90 border border-[#E2DEFB] rounded-xl backdrop-blur-md shadow-xs">
+              <ShieldCheck className="w-4 h-4 text-[#7657FF]" />
+              <span className="text-[11px] font-bold text-[#17151F]">NABH Accredited</span>
+            </div>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 bg-white/90 border border-[#E2DEFB] rounded-xl backdrop-blur-md shadow-xs">
+              <Globe className="w-4 h-4 text-[#7657FF]" />
+              <span className="text-[11px] font-bold text-[#17151F]">JCI Certified</span>
+            </div>
+          </div>
+
+          <div className="hidden lg:block w-[1px] h-12 bg-[#E2DEFB]"></div>
+
+          {/* Testimonial Snippet */}
+          <div className="flex items-center gap-4 max-w-xs">
+            <div className="w-10 h-10 rounded-full bg-[#EDEAFF] overflow-hidden shrink-0 border border-[#E2DEFB]">
+              <Image src="https://i.pravatar.cc/150?img=47" alt="Sarah Jenkins" width={40} height={40} className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <p className="text-[13px] text-[#17151F] italic leading-tight mb-1">&ldquo;Saved 60% on my surgery, felt safe the whole time.&rdquo;</p>
+              <p className="text-[11px] font-semibold text-[#666276]">— Sarah J., UK</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      {/* 2. App Experience Preview */}
+      <section className="relative px-6 py-20 flex flex-col items-center animate-reveal overflow-hidden bg-[#F8F7FC]" style={{ animationDelay: '0.2s' }}>
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EDEAFF] border border-[#7657FF]/20 text-[#7657FF] text-[11px] font-bold tracking-wider uppercase mb-3">
+            Intelligent Journey Overview
+          </div>
+          <h2 className="text-[32px] md:text-[38px] font-medium tracking-tight text-[#17151F] mb-4">Seamless App Experience</h2>
+          <p className="text-[18px] text-[#666276] max-w-[500px] mx-auto">
+            Experience our intelligent care platform across all devices.
+          </p>
+        </div>
+        <div 
+          className="hero-cards-group relative flex items-center justify-center w-full max-w-5xl h-[700px] select-none"
+          tabIndex={0}
+          aria-label="Interactive preview of MedBridge care management platform"
+        >
+
+          {/* Left Phone - Patient Medical Record */}
+          <div 
+            tabIndex={0}
+            role="region"
+            aria-label="Medical Records Card"
+            className="hero-card-shared hero-card-left absolute left-1/2 w-[280px] h-[580px] bg-white rounded-[40px] shadow-2xl opacity-[0.92] border border-[#E2DEFB] overflow-hidden flex flex-col pt-10 px-5 z-0 backdrop-blur-md cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#7657FF]"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-10 h-10 rounded-2xl bg-[#EDEAFF] shadow-sm flex items-center justify-center text-[#7657FF]">
+                <FileText className="w-5 h-5" />
+              </div>
+              <span className="text-[10px] font-bold tracking-wider uppercase text-[#7657FF] bg-[#EDEAFF] px-2.5 py-1 rounded-full border border-[#7657FF]/20">Verified</span>
+            </div>
+
+            <h3 className="text-[18px] font-medium text-[#17151F] mb-6">Medical Records</h3>
+
+            {/* Patient Profile */}
+            <div className="flex items-center gap-3 mb-6 pb-6 border-b border-[#EDEAFF]">
+              <div className="w-12 h-12 rounded-full bg-[#EDEAFF] overflow-hidden shrink-0 border border-[#7657FF]/20">
+                <img src="https://i.pravatar.cc/150?img=47" alt="Patient" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p className="text-[14px] font-semibold text-[#17151F] leading-tight">Sarah Jenkins</p>
+                <p className="text-[12px] text-[#666276]">ID: #MD-84920</p>
+              </div>
+            </div>
+
+            {/* Info Grid */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <div className="bg-[#EDEAFF]/60 p-3 rounded-2xl border border-[#EDEAFF]">
+                <p className="text-[11px] text-[#666276] mb-1">Blood</p>
+                <p className="text-[14px] font-semibold text-[#17151F]">O-Negative</p>
+              </div>
+              <div className="bg-[#EDEAFF]/60 p-3 rounded-2xl border border-[#EDEAFF]">
+                <p className="text-[11px] text-[#666276] mb-1">Age</p>
+                <p className="text-[14px] font-semibold text-[#17151F]">34 yrs</p>
+              </div>
+            </div>
+
+            {/* Timeline/Allergies */}
+            <div className="space-y-4">
+              <div>
+                <p className="text-[12px] font-medium text-[#17151F] mb-2">Known Allergies</p>
+                <div className="flex gap-2">
+                  <span className="text-[11px] bg-red-50 text-red-600 px-2.5 py-1 rounded-md border border-red-100">Penicillin</span>
+                  <span className="text-[11px] bg-[#EDEAFF]/60 text-[#666276] px-2.5 py-1 rounded-md border border-[#E2DEFB]">None other</span>
+                </div>
+              </div>
+              <div>
+                <p className="text-[12px] font-medium text-[#17151F] mb-2">Recent Scans</p>
+                <div className="flex items-center gap-3 p-3 bg-[#EDEAFF]/50 rounded-2xl border border-[#E2DEFB]">
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 text-[#7657FF] shadow-xs">
+                    <Activity className="w-4 h-4" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[12px] font-medium text-[#17151F]">Chest X-Ray</p>
+                    <p className="text-[10px] text-[#666276]">Updated 2d ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Phone - Care Plan */}
+          <div 
+            tabIndex={0}
+            role="region"
+            aria-label="Your Care Plan Card"
+            className="hero-card-shared hero-card-right absolute left-1/2 w-[280px] h-[580px] bg-white rounded-[40px] shadow-2xl opacity-[0.92] border border-[#E2DEFB] overflow-hidden flex flex-col pt-10 px-5 z-10 backdrop-blur-md cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#7657FF]"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-10 h-10 rounded-2xl bg-[#EDEAFF] shadow-sm flex items-center justify-center text-[#7657FF]">
+                <ClipboardCheck className="w-5 h-5" />
+              </div>
+              <div className="flex items-center gap-1.5 bg-[#EDEAFF] px-2.5 py-1 rounded-full border border-[#7657FF]/20">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#7657FF] animate-pulse"></div>
+                <span className="text-[10px] font-bold tracking-wider uppercase text-[#17151F]">Active</span>
+              </div>
+            </div>
+
+            <h3 className="text-[18px] font-medium text-[#17151F] mb-6">Your Care Plan</h3>
+
+            {/* Treatment Progress */}
+            <div className="mb-6">
+              <div className="flex justify-between text-[12px] mb-2">
+                <span className="font-medium text-[#17151F]">Pre-op Prep</span>
+                <span className="text-[#7657FF] font-bold">75%</span>
+              </div>
+              <div className="w-full h-1.5 bg-[#EDEAFF] rounded-full overflow-hidden">
+                <div className="h-full bg-[#7657FF] rounded-full w-3/4"></div>
+              </div>
+            </div>
+
+            {/* Upcoming Appointment */}
+            <p className="text-[12px] font-medium text-[#17151F] mb-2">Next Appointment</p>
+            <div className="p-4 bg-[#EDEAFF]/40 rounded-2xl border border-[#E2DEFB] mb-6">
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <p className="text-[13px] font-semibold text-[#17151F]">Cardiology Consult</p>
+                  <p className="text-[11px] text-[#666276]">Dr. Alan Sharma</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <Calendar className="w-3.5 h-3.5 text-[#7657FF]" />
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-[11px] text-[#666276] bg-white px-2 py-1.5 rounded-lg w-fit border border-[#E2DEFB]">
+                <Clock className="w-3 h-3 text-[#7657FF]" /> Tomorrow, 10:00 AM
+              </div>
+            </div>
+
+            {/* Daily Checklist */}
+            <p className="text-[12px] font-medium text-[#17151F] mb-2">Daily Tasks</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 p-3 bg-white border border-[#E2DEFB] rounded-2xl shadow-xs">
+                <div className="w-5 h-5 rounded-md bg-[#7657FF] flex items-center justify-center shrink-0 text-white">
+                  <Check className="w-3 h-3 text-white" />
+                </div>
+                <p className="text-[12px] font-medium text-[#17151F]">Take Medication</p>
+              </div>
+              <div className="flex items-center gap-3 p-3 bg-white border border-[#E2DEFB] rounded-2xl opacity-60">
+                <div className="w-5 h-5 rounded-md border-2 border-[#E2DEFB] flex items-center justify-center shrink-0">
+                </div>
+                <p className="text-[12px] font-medium text-[#17151F]">Upload Lab Results</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Center Phone - Care Team Match */}
+          <div 
+            tabIndex={0}
+            role="region"
+            aria-label="Match with your care team Card"
+            className="hero-card-shared hero-card-center absolute left-1/2 w-[320px] h-[640px] bg-white rounded-[44px] shadow-[0_24px_48px_-12px_rgba(23,21,31,0.25),0_0_24px_rgba(118,87,255,0.1)] border-[6px] border-[#EDEAFF] overflow-hidden flex flex-col pt-12 pb-10 px-5 z-20 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#7657FF]"
+          >
+            {/* Header */}
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 rounded-full bg-[#EDEAFF] border border-[#7657FF]/30 mx-auto mb-5 shadow-sm flex items-center justify-center">
+                <HeartHandshake className="w-6 h-6 text-[#7657FF]" />
+              </div>
+              <h3 className="text-[24px] font-medium text-[#17151F] leading-tight tracking-tight mb-2">Match with<br />your care team</h3>
+              <p className="text-[13px] text-[#666276]">AI-driven care coordination</p>
+            </div>
+
+            {/* Doctor Matches Grid */}
+            <div className="flex-1 space-y-3">
+              {/* Doctor 1 (Top Match) */}
+              <div className="relative p-4 bg-white border border-[#7657FF]/40 rounded-3xl shadow-[0_4px_20px_-8px_rgba(118,87,255,0.2)] group transition-all hover:border-[#7657FF]">
+                <div className="absolute -top-2.5 right-4 bg-[#7657FF] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">
+                  98% Match
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-[#EDEAFF] overflow-hidden shrink-0 border border-[#7657FF]/30">
+                    <img src="https://i.pravatar.cc/150?img=32" alt="Doctor" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <h4 className="text-[14px] font-semibold text-[#17151F] leading-tight">Dr. Elena Rostova</h4>
+                    <p className="text-[12px] text-[#666276] mb-1">Cardiothoracic Surgeon</p>
+                    <div className="flex items-center gap-1">
+                      <Star className="w-3 h-3 text-[#7657FF] fill-[#7657FF]" />
+                      <span className="text-[11px] font-medium text-[#17151F]">4.9 (120 reviews)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Doctor 2 */}
+              <div className="p-4 bg-[#EDEAFF]/40 border border-[#E2DEFB] rounded-3xl transition-all hover:bg-white hover:border-[#7657FF]/30 hover:shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] font-bold text-[#7657FF] bg-[#EDEAFF] px-2 py-0.5 rounded-md">94% Match</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#EDEAFF] overflow-hidden shrink-0 border border-[#E2DEFB]">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Doctor" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <h4 className="text-[13px] font-semibold text-[#17151F] leading-tight">Dr. Marcus Chen</h4>
+                    <p className="text-[11px] text-[#666276]">General Medicine</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Doctor 3 */}
+              <div className="p-4 bg-[#EDEAFF]/40 border border-[#E2DEFB] rounded-3xl transition-all hover:bg-white hover:border-[#7657FF]/30 hover:shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#EDEAFF] overflow-hidden shrink-0 border border-[#E2DEFB]">
+                    <img src="https://i.pravatar.cc/150?img=31" alt="Doctor" className="w-full h-full object-cover grayscale opacity-80" />
+                  </div>
+                  <div>
+                    <h4 className="text-[13px] font-semibold text-[#17151F] leading-tight">Dr. Aisha Khan</h4>
+                    <p className="text-[11px] text-[#666276]">Care Coordinator</p>
+                  </div>
+                  <div className="ml-auto text-[10px] font-bold text-[#7657FF] bg-white px-2 py-0.5 rounded-md border border-[#E2DEFB]">90%</div>
+                </div>
+              </div>
+            </div>
+
+            <Link href="/health-games" className="w-full mt-6 block">
+              <button className="w-full py-4 rounded-full bg-[#7657FF] text-white font-medium text-[16px] shadow-[0_8px_20px_-6px_rgba(118,87,255,0.45)] hover:bg-[#6042EE] hover:-translate-y-0.5 transition-all cursor-pointer">
+                Try Mindful Breathing 🌿
+              </button>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {HOSPITALS.slice(0, 3).map((h) => (
-              <Card key={h.id} className="p-6 hover:shadow-xl transition-all border-zinc-200 flex flex-col justify-between bg-white">
-                <div>
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-zinc-950 text-lg">{h.name}</h3>
-                    <Badge variant="secondary" className="bg-zinc-100 text-zinc-800 border-zinc-200">
-                      {h.accreditation}
-                    </Badge>
-                  </div>
-                  <p className="text-xs text-zinc-500 mb-4">{h.city} • {h.distanceFromAirport}</p>
-                  
-                  <p className="text-xs text-zinc-600 line-clamp-3 mb-4 leading-relaxed">
-                    {h.description}
-                  </p>
-
-                  <div className="space-y-2 text-xs border-t border-zinc-100 pt-3 mb-5">
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">HealIndia Trust Score:</span>
-                      <span className="font-bold text-zinc-950">{h.trustScore}/100</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-500">Languages:</span>
-                      <span className="font-medium text-zinc-700">{h.languages.slice(0, 3).join(", ")}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    onClick={() => router.push('/hospitals')}
-                    className="text-xs font-semibold border-zinc-300 text-zinc-800 hover:bg-zinc-100"
-                  >
-                    Compare
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    onClick={() => router.push('/ai-care-match')}
-                    className="text-xs font-semibold bg-zinc-900 hover:bg-black text-white"
-                  >
-                    Match Me
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 10-Step Connected Journey Banner */}
-      <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-zinc-100 via-zinc-50 to-white text-zinc-900 border border-zinc-200 shadow-sm relative overflow-hidden">
-          <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-200/80 text-xs font-semibold text-zinc-900 mb-4 border border-zinc-300/80">
-              <RotateCcw className="w-3.5 h-3.5 text-zinc-700" /> Complete 10-Step Synchronized Journey
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-950 mb-4">
-              From Inquiry to Full Recovery at Home
-            </h2>
-            <p className="text-zinc-600 text-sm md:text-base leading-relaxed mb-8">
-              No disconnected spreadsheets or WhatsApp groups. MedBridge-Global organizes your inquiries, document uploads, doctor reviews, hospital invitation letters, medical visa filings, hotel transfers, surgical admission, and tele-health follow-up into one cohesive portal.
+      {/* 3. Diary Entry Testimonials */}
+      <section className="px-6 md:px-12 max-w-5xl mx-auto w-full animate-reveal py-10" style={{ animationDelay: '0.4s' }}>
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EDEAFF] border border-[#7657FF]/20 text-[#7657FF] text-[11px] font-bold tracking-wider uppercase mb-3">
+            Real Stories Beyond Borders
+          </div>
+          <h2 className="text-[32px] md:text-[38px] font-medium tracking-tight text-[#17151F]">Patient Reflections</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {/* Card 1 */}
+          <div className="bg-white p-8 sm:p-10 rounded-[32px] shadow-[0_8px_24px_-12px_rgba(23,21,31,0.12)] border border-[#E2DEFB] rotate-1 transition-transform hover:rotate-0 hover:shadow-lg hover:border-[#7657FF]/40">
+            <p className="text-[20px] text-[#17151F] leading-relaxed mb-8">
+              &ldquo;The waiting list at home was nearly two years. Within weeks, I was matched with Dr. Chowbey. The entire travel, visa, and hospital admission process felt incredibly human and structured.&rdquo;
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                onClick={() => router.push('/how-it-works')} 
-                size="lg" 
-                className="bg-zinc-900 hover:bg-black text-white rounded-full font-bold px-8 shadow-xs cursor-pointer"
-              >
-                View the 10-Step Journey Map <ArrowRight className="w-4 h-4 ml-1.5" />
-              </Button>
-              <Button 
-                onClick={() => router.push('/login')} 
-                variant="outline" 
-                size="lg" 
-                className="border-zinc-300 text-zinc-800 hover:bg-zinc-100 rounded-full font-semibold px-6 cursor-pointer"
-              >
-                Explore Portals (Patient / Hospital / CRM)
-              </Button>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-[2px] bg-[#7657FF]"></div>
+              <span className="font-reenie text-[24px] text-[#7657FF]">Sarah M., UK</span>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white p-8 sm:p-10 rounded-[32px] shadow-[0_8px_24px_-12px_rgba(23,21,31,0.12)] border border-[#E2DEFB] -rotate-1 transition-transform hover:rotate-0 hover:shadow-lg hover:border-[#7657FF]/40 md:mt-12">
+            <p className="text-[20px] text-[#17151F] leading-relaxed mb-8">
+              &ldquo;The AI document checker saved me so much anxiety before flying. Having a dedicated coordinator made the intimidating experience of surgery in a foreign country feel completely safe.&rdquo;
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-[2px] bg-[#7657FF]"></div>
+              <span className="font-reenie text-[24px] text-[#7657FF]">David O., Kenya</span>
             </div>
           </div>
         </div>
       </section>
+
+      {/* 4. Waitlist Conversion */}
+      <section className="relative w-full px-6 py-32 mt-12 bg-[#17151F] overflow-hidden flex flex-col items-center justify-center text-center border-t border-[#7657FF]/20">
+        {/* Subtle Violet-to-Graphite glowing gradient background */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#7657FF]/25 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#A99AFF]/15 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="w-16 h-16 rounded-2xl bg-[#7657FF]/15 border border-[#7657FF]/35 backdrop-blur-md flex items-center justify-center mb-8 relative z-10 shadow-[0_0_24px_rgba(118,87,255,0.25)]">
+          <div className="w-4 h-4 rounded-full bg-[#7657FF] shadow-[0_0_12px_#7657FF]" />
+        </div>
+
+        <h2 className="text-[40px] md:text-[56px] font-medium text-white tracking-tight max-w-2xl leading-tight mb-6 relative z-10">
+          Ready for a mindful medical journey?
+        </h2>
+
+        <p className="text-[#EDEAFF]/85 text-[18px] max-w-[420px] mb-10 relative z-10">
+          Join our early access program for personalized international care coordination.
+        </p>
+
+        <form className="relative flex items-center w-full max-w-md bg-white rounded-full p-1.5 shadow-2xl z-10 border border-[#E2DEFB]">
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="flex-1 bg-transparent border-none outline-none px-6 text-[#17151F] placeholder:text-[#666276] text-[15px]"
+            required
+          />
+          <button
+            type="submit"
+            className="bg-[#7657FF] hover:bg-[#6042EE] text-white px-8 py-3.5 rounded-full font-medium text-[15px] hover:-translate-y-0.5 transition-all shadow-[0_4px_16px_rgba(118,87,255,0.4)] shrink-0 cursor-pointer"
+          >
+            Join waitlist
+          </button>
+        </form>
+      </section>
+
     </div>
   );
 }
