@@ -98,15 +98,15 @@ export default function HowItWorksPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F8F7FC] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <Badge variant="outline" className="bg-emerald-50 text-emerald-800 border-emerald-200 mb-3">
+          <Badge variant="outline" className="bg-[#7657FF]/15 text-[#7657FF] border-[#7657FF]/30 mb-3">
             Section 18: Complete Connected Journey
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#17151F] tracking-tight mb-4">
             How MedBridge-Global Works
           </h1>
           <p className="text-slate-600 text-base md:text-lg">
@@ -115,28 +115,28 @@ export default function HowItWorksPage() {
         </div>
 
         {/* 10 Steps Visual Stepper */}
-        <div className="relative pl-6 md:pl-10 space-y-8 before:absolute before:inset-y-0 before:left-[19px] md:before:left-[27px] before:w-1 before:bg-emerald-500/20">
+        <div className="relative pl-6 md:pl-10 space-y-8 before:absolute before:inset-y-0 before:left-[19px] md:before:left-[27px] before:w-1 before:bg-[#7657FF]/15/20">
           {steps.map((s) => {
             const Icon = s.icon;
             return (
               <div key={s.step} className="relative group">
                 
                 {/* Step Circle Indicator */}
-                <div className="absolute -left-[32px] md:-left-[43px] w-9 h-9 md:w-11 md:h-11 rounded-full bg-white border-4 border-emerald-600 flex items-center justify-center font-extrabold text-xs md:text-sm text-emerald-700 shadow-xs z-10 group-hover:scale-110 transition-transform">
+                <div className="absolute -left-[32px] md:-left-[43px] w-9 h-9 md:w-11 md:h-11 rounded-full bg-white border-4 border-[#7657FF]/30 flex items-center justify-center font-extrabold text-xs md:text-sm text-[#7657FF] shadow-xs z-10 group-hover:scale-110 transition-transform">
                   {s.step}
                 </div>
 
-                <Card className="p-6 md:p-8 bg-white border-slate-200 rounded-3xl hover:border-emerald-500/40 hover:shadow-lg transition-all">
+                <Card className="p-6 md:p-8 bg-white border-[#E2DEFB] rounded-3xl hover:border-[#7657FF]/30/40 hover:shadow-lg transition-all">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-200">
+                      <div className="w-10 h-10 rounded-2xl bg-[#7657FF]/15 text-[#7657FF] flex items-center justify-center border border-[#7657FF]/30">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900">
+                      <h3 className="text-xl font-bold text-[#17151F]">
                         Step {s.step}: {s.title}
                       </h3>
                     </div>
-                    <Badge variant="secondary" className="bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold text-xs">
+                    <Badge variant="secondary" className="bg-[#7657FF]/15 text-[#7657FF] border border-[#7657FF]/30 font-semibold text-xs">
                       {s.badge}
                     </Badge>
                   </div>
@@ -152,7 +152,7 @@ export default function HowItWorksPage() {
         </div>
 
         {/* Bottom CTA Card */}
-        <div className="p-8 md:p-10 bg-emerald-50 border border-emerald-200 text-zinc-900 rounded-3xl text-center space-y-4 shadow-xs">
+        <div className="p-8 md:p-10 bg-[#7657FF]/15 border border-[#7657FF]/30 text-zinc-900 rounded-3xl text-center space-y-4 shadow-xs">
           <h3 className="text-2xl md:text-3xl font-bold text-zinc-900">Ready to Start Your 10-Step Journey?</h3>
           <p className="text-zinc-600 text-sm max-w-xl mx-auto">
             Take Step 1 now by entering your medical details into our AI Care Match system.
@@ -160,7 +160,7 @@ export default function HowItWorksPage() {
           <Button 
             size="lg"
             onClick={() => router.push('/ai-care-match')}
-            className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-full px-8 py-6 text-base shadow-xs cursor-pointer"
+            className="bg-[#7657FF]/15 hover:bg-[#7657FF]/15 text-white font-bold rounded-full px-8 py-6 text-base shadow-xs cursor-pointer"
           >
             Start Step 1: Tell Us Your Healthcare Need <ArrowRight className="w-4 h-4 ml-2" />
           </Button>

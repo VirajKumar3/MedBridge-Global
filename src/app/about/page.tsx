@@ -34,7 +34,7 @@ export default function AboutPage() {
             Academic Project & Platform Specifications
           </Badge>
           <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-950 tracking-tight">
-            About ✚HealIndiaAI
+            About ✚MedBridge Global
           </h1>
           <p className="text-zinc-500 font-semibold text-sm">
             Tagline: Your Intelligent Healthcare Journey Beyond Borders
@@ -42,7 +42,7 @@ export default function AboutPage() {
           <p className="text-zinc-700 text-sm md:text-base leading-relaxed bg-white p-4 rounded-2xl border border-zinc-200 shadow-2xs">
             <strong>Full Academic Project Title:</strong> <br />
             <span className="text-zinc-950 font-bold">
-              ✚HealIndiaAI: An AI-Powered International Medical Tourism and Patient Care Coordination Platform
+              ✚MedBridge Global: An AI-Powered International Medical Tourism and Patient Care Coordination Platform
             </span>
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function AboutPage() {
             Official Capstone & Clinical Ethics Statement
           </div>
           <blockquote className="text-xs sm:text-sm text-zinc-700 italic leading-relaxed border-l-4 border-zinc-800 pl-4">
-            "MedBridge-Global uses AI to organize patient information, analyze and summarize uploaded documents, support hospital and specialist matching, and streamline international care coordination. Medical diagnosis and treatment decisions remain strictly with qualified healthcare professionals."
+            &ldquo;MedBridge-Global uses AI to organize patient information, analyze and summarize uploaded documents, support hospital and specialist matching, and streamline international care coordination. Medical diagnosis and treatment decisions remain strictly with qualified healthcare professionals.&rdquo;
           </blockquote>
         </Card>
 

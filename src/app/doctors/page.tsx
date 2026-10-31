@@ -2,6 +2,7 @@
 
 
 import { useState } from "react";
+import Link from "next/link";
 import { DOCTORS, Doctor } from "@/lib/data";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -250,10 +251,12 @@ export default function DoctorsPage() {
                 </div>
               </div>
 
-              <div className="flex gap-2 pt-2">
-                <Button variant="outline" onClick={() => setActiveDoctor(null)} className="flex-1 rounded-xl text-xs">
-                  Close
-                </Button>
+              <div className="flex flex-col sm:flex-row gap-2 pt-2">
+                <Link href={`/doctors/${activeDoctor.id}`} className="flex-1">
+                  <Button variant="outline" className="w-full rounded-xl text-xs font-semibold border-slate-200">
+                    Open Full Profile Page &rarr;
+                  </Button>
+                </Link>
                 <Button 
                   onClick={() => {
                     const d = activeDoctor;

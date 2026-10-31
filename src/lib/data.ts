@@ -201,7 +201,7 @@ export const TREATMENTS: Treatment[] = [
     id: "bariatric-metabolic-surgery",
     name: "Laparoscopic Bariatric Sleeve / Bypass",
     category: "Bariatric Surgery",
-    iconName: "Scale",
+    iconName: "Scissors",
     description: "Minimally invasive gastric sleeve and Roux-en-Y gastric bypass for long-term weight loss and diabetes remission.",
     costRangeINR: "₹2,60,000 – ₹4,20,000",
     costRangeUSD: "$3,200 – $5,100",
@@ -220,7 +220,7 @@ export const TREATMENTS: Treatment[] = [
     id: "all-on-4-dental-implants",
     name: "All-on-4 & Full Mouth Dental Implants",
     category: "Dental Care",
-    iconName: "Sparkles",
+    iconName: "Smile",
     description: "Immediate-load dental implant rehabilitation with digital 3D smile design and zirconia bridges.",
     costRangeINR: "₹1,50,000 – ₹3,00,000",
     costRangeUSD: "$1,800 – $3,600",
@@ -258,6 +258,7 @@ export const HOSPITALS: Hospital[] = [
     bedCount: 710,
     featured: true,
     bestValue: false,
+    image: "/hospitals/apollo-delhi.jpg",
     description: "The flagship hospital of the Apollo Group, accredited by JCI continuously since 2005. Features 52 specialties and dedicated patient coordinators speaking over 8 international languages."
   },
   {
@@ -280,6 +281,7 @@ export const HOSPITALS: Hospital[] = [
     bedCount: 1250,
     featured: false,
     bestValue: true,
+    image: "/hospitals/medanta-gurgaon.jpg",
     description: "Founded by legendary cardiac surgeon Dr. Naresh Trehan. Spans 43 acres with 6 institutes, 37 operating suites, and high volume organ transplant credentials."
   },
   {
@@ -302,6 +304,7 @@ export const HOSPITALS: Hospital[] = [
     bedCount: 350,
     featured: false,
     bestValue: false,
+    image: "/hospitals/fortis-mumbai.jpg",
     description: "A premier quaternary hospital known for advanced cardiac care and minimally invasive robotic procedures in India's financial capital."
   },
   {
@@ -324,6 +327,7 @@ export const HOSPITALS: Hospital[] = [
     bedCount: 600,
     featured: false,
     bestValue: false,
+    image: "/hospitals/manipal-bengaluru.jpg",
     description: "Located in India's tech capital, Manipal is a leader in precision oncology, robotic joint reconstruction, and genomics-driven therapy."
   },
   {
@@ -346,6 +350,7 @@ export const HOSPITALS: Hospital[] = [
     bedCount: 1000,
     featured: false,
     bestValue: true,
+    image: "/hospitals/gleneagles-chennai.jpg",
     description: "Renowned globally as the transplant capital of India, having completed over 2,000 successful liver and multi-organ transplants for international patients."
   },
   {
@@ -368,6 +373,7 @@ export const HOSPITALS: Hospital[] = [
     bedCount: 530,
     featured: false,
     bestValue: false,
+    image: "/hospitals/max-delhi.jpg",
     description: "Located in prime South Delhi, recognized for advanced laparoscopic bariatric surgery, radiation oncology with TrueBeam STx, and cardiac sciences."
   }
 ];

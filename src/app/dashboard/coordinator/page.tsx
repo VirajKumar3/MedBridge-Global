@@ -60,16 +60,16 @@ export default function CoordinatorDashboard() {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-4.5rem)] w-full flex-col bg-slate-50">
+    <div className="flex min-h-[calc(100vh-4.5rem)] w-full flex-col bg-[#F8F7FC]">
       
       <div className="flex flex-1">
         <div className="flex-1 p-4 sm:p-6 md:p-10 max-w-7xl mx-auto w-full space-y-8">
           
           {/* Header */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-4 border-b border-slate-200">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-4 border-b border-[#E2DEFB]">
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-3xl font-extrabold text-slate-900">Care Coordinator CRM 💼</h1>
+                <h1 className="text-3xl font-extrabold text-[#17151F]">Care Coordinator CRM 💼</h1>
                 <Badge className="bg-indigo-50 text-indigo-700 border-indigo-200 text-xs font-semibold">
                   Section 22: Patient Pipeline Hub
                 </Badge>
@@ -80,7 +80,7 @@ export default function CoordinatorDashboard() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-2xs">
+              <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-[#E2DEFB] shadow-2xs">
                 <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-800 font-bold text-xs">
                   MC
                 </div>
@@ -93,7 +93,7 @@ export default function CoordinatorDashboard() {
           </div>
 
           {/* Pipeline Horizontal Stepper View */}
-          <Card className="p-5 bg-white border-slate-200 rounded-3xl shadow-sm space-y-3 overflow-hidden">
+          <Card className="p-5 bg-white border-[#E2DEFB] rounded-3xl shadow-sm space-y-3 overflow-hidden">
             <div className="flex justify-between items-center">
               <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                 Full 11-Stage Case Coordination Pipeline
@@ -107,7 +107,7 @@ export default function CoordinatorDashboard() {
                 return (
                   <div 
                     key={stage}
-                    className="p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 shrink-0 min-w-[125px] text-xs flex flex-col justify-between"
+                    className="p-2.5 rounded-2xl bg-[#F8F7FC] border border-[#E2DEFB]/80 shrink-0 min-w-[125px] text-xs flex flex-col justify-between"
                   >
                     <div className="text-[10px] text-slate-400 font-mono">Stage {idx + 1}</div>
                     <span className="font-bold text-slate-800 line-clamp-1 mt-0.5">{stage}</span>
@@ -131,7 +131,7 @@ export default function CoordinatorDashboard() {
                   placeholder="Search patient leads by name or country..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 text-xs bg-white rounded-2xl py-5 border-slate-200"
+                  className="pl-10 text-xs bg-white rounded-2xl py-5 border-[#E2DEFB]"
                 />
               </div>
 
@@ -142,7 +142,7 @@ export default function CoordinatorDashboard() {
                     <Card
                       key={lead.id}
                       onClick={() => setSelectedLead(lead)}
-                      className={`p-4 rounded-2xl cursor-pointer transition-all border ${isSelected ? 'border-indigo-600 ring-2 ring-indigo-500/20 bg-indigo-50/30 shadow-md' : 'border-slate-200 bg-white hover:border-slate-300'}`}
+                      className={`p-4 rounded-2xl cursor-pointer transition-all border ${isSelected ? 'border-indigo-600 ring-2 ring-indigo-500/20 bg-indigo-50/30 shadow-md' : 'border-[#E2DEFB] bg-white hover:border-slate-300'}`}
                     >
                       <div className="flex justify-between items-start mb-1.5">
                         <span className="font-mono text-xs font-bold text-primary">{lead.id}</span>
@@ -151,12 +151,12 @@ export default function CoordinatorDashboard() {
                         </Badge>
                       </div>
 
-                      <h4 className="font-bold text-slate-900 text-sm">{lead.patientName}</h4>
+                      <h4 className="font-bold text-[#17151F] text-sm">{lead.patientName}</h4>
                       <p className="text-xs text-slate-500">{lead.country} • {lead.treatment}</p>
 
                       <div className="mt-3 pt-2 border-t border-slate-100 flex justify-between items-center text-[11px] text-slate-400">
                         <span>{lead.assignedHospital.split(" - ")[0]}</span>
-                        <span className="font-bold text-emerald-600">${lead.budgetUSD} USD</span>
+                        <span className="font-bold text-[#7657FF]">${lead.budgetUSD} USD</span>
                       </div>
                     </Card>
                   );
@@ -167,7 +167,7 @@ export default function CoordinatorDashboard() {
             {/* Right Column: Active Lead Dossier & Pipeline Controls */}
             {selectedLead && (
               <div className="lg:col-span-7">
-                <Card className="p-6 md:p-8 bg-white border-slate-200 rounded-3xl shadow-lg space-y-6">
+                <Card className="p-6 md:p-8 bg-white border-[#E2DEFB] rounded-3xl shadow-lg space-y-6">
                   
                   {/* Lead Header */}
                   <div className="flex flex-wrap justify-between items-start gap-3 border-b border-slate-100 pb-4">
@@ -176,7 +176,7 @@ export default function CoordinatorDashboard() {
                         <span className="font-mono text-xs text-slate-400 font-bold">{selectedLead.id}</span>
                         <Badge className="bg-primary text-white text-[10px] font-bold">{selectedLead.urgency}</Badge>
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mt-1">{selectedLead.patientName}</h3>
+                      <h3 className="text-2xl font-bold text-[#17151F] mt-1">{selectedLead.patientName}</h3>
                       <p className="text-xs text-slate-500">{selectedLead.country} • Registered: {selectedLead.createdDate}</p>
                     </div>
 
@@ -189,7 +189,7 @@ export default function CoordinatorDashboard() {
                   </div>
 
                   {/* Stage Mover Selector */}
-                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                  <div className="p-4 bg-[#F8F7FC] rounded-2xl border border-[#E2DEFB] space-y-2">
                     <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
                       Advance CRM Pipeline Stage:
                     </label>
@@ -197,7 +197,7 @@ export default function CoordinatorDashboard() {
                       <select 
                         value={selectedLead.stage} 
                         onChange={(e) => moveStage(selectedLead.id, e.target.value as CoordinatorLead['stage'])}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 font-semibold"
+                        className="w-full bg-white border border-[#E2DEFB] rounded-xl p-2.5 text-xs text-slate-800 font-semibold"
                       >
                         {pipelineStages.map(stg => (
                           <option key={stg} value={stg}>{stg}</option>
@@ -220,13 +220,13 @@ export default function CoordinatorDashboard() {
 
                   {/* Patient Clinical & Contact Details */}
                   <div className="grid grid-cols-2 gap-4 text-xs">
-                    <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="p-3 bg-[#F8F7FC] rounded-xl border border-[#E2DEFB]">
                       <span className="text-slate-400 text-[10px] block">Contact</span>
                       <p className="font-semibold text-slate-800 mt-0.5">{selectedLead.phone}</p>
                       <p className="text-slate-500">{selectedLead.email}</p>
                     </div>
 
-                    <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="p-3 bg-[#F8F7FC] rounded-xl border border-[#E2DEFB]">
                       <span className="text-slate-400 text-[10px] block">Assigned Provider</span>
                       <p className="font-semibold text-slate-800 mt-0.5">{selectedLead.assignedHospital}</p>
                       <p className="text-slate-500">{selectedLead.assignedDoctor}</p>
@@ -236,7 +236,7 @@ export default function CoordinatorDashboard() {
                   {/* Coordinator Clinical Notes */}
                   <div className="space-y-1 text-xs">
                     <span className="font-bold text-slate-700 block">Case Coordination Notes:</span>
-                    <p className="text-slate-600 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 leading-relaxed">
+                    <p className="text-slate-600 bg-[#F8F7FC] p-3.5 rounded-2xl border border-[#E2DEFB] leading-relaxed">
                       {selectedLead.notes}
                     </p>
                   </div>
@@ -245,7 +245,7 @@ export default function CoordinatorDashboard() {
                   <div className="space-y-2 text-xs">
                     <span className="font-bold text-slate-700 block">Action Item Checklist:</span>
                     {selectedLead.tasks.map((task, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 bg-slate-50 rounded-xl border border-slate-100 text-slate-700">
+                      <div key={i} className="flex items-center gap-2 p-2 bg-[#F8F7FC] rounded-xl border border-slate-100 text-slate-700">
                         <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
                         <span>{task}</span>
                       </div>
